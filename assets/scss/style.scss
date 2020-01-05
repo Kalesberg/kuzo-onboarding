@@ -1022,12 +1022,53 @@ a {
     grid-template-columns: auto 480px;
     height: calc(100vh - 66px);
     overflow: hidden;
+    position: relative;
     button,
     .btn {
       &:focus,
       &:active {
         outline: none !important;
         box-shadow: none !important;
+      }
+    }
+    
+    .toolbar {
+      text-align: left;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: calc(100% - 480px);
+      z-index: 1;
+      .toolbar-content {
+        display: flex;
+        align-items: center;
+        padding: 10px 40px;
+        color: white;
+        background: #3579e9;
+        box-shadow: 0px 5px 10px #abb2e4;
+        p {
+          margin-bottom: 0;
+        }
+        .text-big {
+          flex-shrink: 0;
+          font-family: $fontHeavy;
+          font-size: 19px;
+          line-height: 26px;
+        }
+        .text-small {
+          margin-left: 20px;
+          text-align: left;
+          font-size: 13px;
+          line-height: 18px;
+        }
+      }
+      .btn-back {
+        display: none;
+        font-family: $fontHeavy;
+        font-size: 18px;
+        line-height: 30px;
+        margin-left: 30px;
+        margin-top: 10px;
       }
     }
     .main-panel {
@@ -1039,7 +1080,8 @@ a {
       // form {
         position: relative;
         min-height: 100%;
-        .btn-next {
+        .btn-next,
+        #btn_enroll {
           // position: absolute;
           // left: 50%;
           // bottom: 130px;
@@ -1062,44 +1104,6 @@ a {
           }
         }
       // }
-      .toolbar {
-        text-align: left;
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        .toolbar-content {
-          display: flex;
-          align-items: center;
-          padding: 10px 40px;
-          color: white;
-          background: #3579e9;
-          box-shadow: 0px 5px 10px #abb2e4;
-          p {
-            margin-bottom: 0;
-          }
-          .text-big {
-            flex-shrink: 0;
-            font-family: $fontHeavy;
-            font-size: 19px;
-            line-height: 26px;
-          }
-          .text-small {
-            margin-left: 20px;
-            text-align: left;
-            font-size: 13px;
-            line-height: 18px;
-          }
-        }
-        .btn-back {
-          display: none;
-          font-family: $fontHeavy;
-          font-size: 18px;
-          line-height: 30px;
-          margin-left: 30px;
-          margin-top: 10px;
-        }
-      }
       .step-contents {
         text-align: center;
         .step-content {
@@ -1132,6 +1136,14 @@ a {
               .dropdown-toggle {
                 @include formStyle();
                 color: #a6a6a6;
+                &::after {
+                  color: #434343;
+                }
+              }
+              &.show {
+                .dropdown-toggle {
+                  border: 2px solid $yellow;
+                }
               }
               .dropdown-menu {
                 li {
@@ -1253,6 +1265,7 @@ a {
               ul {
                 padding: 0;
                 margin: 0;
+                columns: 2;
                 list-style: none;
                 li {
                   position: relative;
@@ -1429,7 +1442,6 @@ a {
         .card {
           margin: auto;
           max-width: 390px;
-          overflow: hidden;
           border: none;
           border-radius: 0 0 30px 30px;
           background: #ffffff;
@@ -1439,7 +1451,6 @@ a {
             padding: 1.6rem 1.9rem;
             border: none;
             background: transparent;
-            overflow: hidden;
             .card-title {
               font-size: 1.7rem;
               line-height: 2.3rem;
@@ -1448,11 +1459,12 @@ a {
             &::before {
               position: absolute;
               content: '';
-              top: 0;
+              top: -8px;
               left: 0;
               width: 100%;
               height: 8px;
               background: $yellow;
+              border-radius: 26px 26px 0 0;
             }
           }
           .card-body {
@@ -1943,6 +1955,9 @@ a {
     flex-direction: column;
     justify-content: center;
   }
+  .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
+    columns: 1;
+  }
 }
 
 @media only screen and (max-width: 991px) {
@@ -2064,7 +2079,19 @@ a {
     font-size: 16px;
   }
   .page-content#form_page {
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto 320px;
+    .toolbar {
+      width: calc(100% - 320px);
+      .text-big {
+        width: 100px;
+      }
+    }
+    .main-panel {
+      padding-top: 150px;
+      .step-contents .step-content#step3 .button-wrapper {
+        width: calc(100% - 320px);
+      }
+    }
     .info-panel {
       .content {
         max-width: 300px;
@@ -2175,13 +2202,23 @@ a {
   .popup .popup-content .popup-videos .btn-close {
     right: 20px;
   }
-  .page-content#form_page .main-panel .toolbar .toolbar-content {
-    padding: 10px;
-  }
-  .page-content#form_page .main-panel .toolbar .btn-back {
-    display: none;
+  .form-header {
+    nav {
+      display: none !important;
+    }
+    .btn-back {
+      display: block !important;
+    }
   }
   .page-content#form_page {
+    .toolbar {
+      .btn-back {
+        display: none;
+      }
+      .toolbar-content {
+        padding: 10px;
+      }
+    }
     .main-panel {
       padding-left: 0;
       padding-right: 0;
@@ -2203,23 +2240,55 @@ a {
       }
     }
   }
-  .page-content#form_page .main-panel .step-contents .step-content {
-    .plans .plan ul li {
-      color: #848484;
-    }
-    &#step3 .button-wrapper {
-      flex-direction: column;
+  .page-content#form_page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    .toolbar {
       width: 100%;
-      height: auto;
-      padding: 15px 20px;
-      .mobile-step-circles {
-        margin-top: 10px;
+    }
+    .main-panel {
+      padding: 50px 20px;
+      order: 1;
+      .step-contents .step-content {
+        .plans .plan ul li {
+          color: #848484;
+        }
+        &#step3 {
+          margin-bottom: 100px;
+          .button-wrapper {
+            flex-direction: column;
+            width: 100%;
+            height: auto;
+            padding: 15px 20px;
+            .mobile-step-circles {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+    .info-panel {
+      padding: 100px 20px 20px;
+      max-width: 100%;
+      .content {
+        position: relative;
+        max-width: 500px;
+        margin: auto;
+        left: 0;
+        top: 0;
+        transform: translate(0, 0);
+        .custom-slick .slick-prev,
+        .custom-slick .slick-next {
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
     }
   }
 }
 
-@media only screen and (max-width: 564px) {
+@media only screen and (max-width: 576px) {
   .main-header {
     margin-top: 0px;
     .navbar {
@@ -2424,6 +2493,7 @@ a {
       line-height: 30px;
       color: #404040;
       display: block;
+      opacity: 0;
     }
     .logo {
       font-size: 26px;
@@ -2436,15 +2506,16 @@ a {
   .page-content {
     &#form_page {
       grid-template-columns: 100%;
+      .toolbar {
+        .btn-back {
+          display: none !important;
+        }
+      }
       .main-panel {
+        padding-top: 100px;
         padding-bottom: 20px;
         text-align: center;
         min-height: none;
-        .toolbar {
-          .btn-back {
-            display: none !important;
-          }
-        }
         .step-contents {
           .step-content {
             flex-direction: column;
@@ -2466,6 +2537,16 @@ a {
             }
             &.active {
               display: flex;
+            }
+            .plans {
+              margin-bottom: 100px;
+              .plan ul {
+                display: flex;
+                flex-direction: column;
+                li.disabled {
+                  order: 1;
+                }
+              }
             }
           }
         }
@@ -2509,3 +2590,24 @@ a {
   to { opacity: 1;}
 }
 
+// Stripe
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+  @include formStyle();
+  padding-top: 21px;
+}
+
+.StripeElement--focus {
+  border: 2px solid $yellow;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important;
+}

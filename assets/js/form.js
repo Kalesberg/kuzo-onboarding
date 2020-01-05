@@ -1,4 +1,9 @@
-$('document').ready(function() {
+$('document').ready(function () {
+  function activeNextElement(className) {
+    let old = $(className + '.active');
+    old.next().addClass('active');
+    old.removeClass('active');
+  }
   $('.testimonials').slick({
     dots: false,
     arrows: true,
@@ -8,27 +13,20 @@ $('document').ready(function() {
     autoplay: true,
     autoplaySpeed: 2000,
   });
-  $('.btn-next').click(function() {
-    let old = $('.step-content.active');
-    old.next().addClass('active');
-    if ($('.step-content').first().hasClass('active')) {
-      $('.btn-back').show();
-    }
-    // if ($('.step-content').last().hasClass('active')) {
-    //   $('.btn-next').fadeOut('300');
-    // }
-    old.removeClass('active');
+  $('.btn-next').click(function () {
+    $('.btn-back').show();
+    activeNextElement('.step-content');
+    activeNextElement('.step-link');
+    $('.form-header .btn-back').css('opacity', 1);
   });
-  $('.btn-back').click(function() {
+  $('.btn-back').click(function () {
     let old = $('.step-content.active');
     old.prev().addClass('active');
-    if ($('.step-content').last().hasClass('active')) {
-      $('.btn-next').show();
-    }
-    if ($('.step-content').first().hasClass('active')) {
-      $('.btn-back').hide();
-    }
     old.removeClass('active');
+    if ($('.step-content').first().hasClass('active')) {
+      $(this).hide();
+      $('.form-header .btn-back').css('opacity', 0);
+    }
   });
 
   // Active Next button when all fields are selected
@@ -36,38 +34,38 @@ $('document').ready(function() {
     let parent = elmnt.closest('.step-content');
     let flag = true;
     let nextBtn = parent.find('.btn-next');
-    parent.find('.form-control').each(function() {
+    parent.find('.form-control').each(function () {
       if (!$(this).val()) flag = false;
     });
     if (parent.find('.selectpicker')) {
-      parent.find('.selectpicker').each(function() {
+      parent.find('.selectpicker').each(function () {
         if (!$(this).val()) flag = false;
       });
     }
-    if ( flag == true ) {
+    if (flag == true) {
       nextBtn.removeClass('disabled');
-    } else {  
+    } else {
       nextBtn.addClass('disabled');
     }
   }
-  $('input.form-control').on('change', function() {
+  $('input.form-control').on('keypress', function () {
     liveUpdateNextButton($(this));
   });
-  $('.step-content select').on('change', function() {
+  $('.step-content select').on('change', function () {
     liveUpdateNextButton($(this));
   });
 
   // Change Plan
-  $('#plan_method').on('change', function() {
+  $('#plan_method').on('change', function () {
     $('.switch-label').toggleClass('active');
     // Show changed plans
     $('.plans.active').fadeOut('300');
     $('.plans').toggleClass('active');
     $('.plans.active').fadeIn('300');
   });
-  
+
   // Select plan when click plan items
-  $('.plan').click(function() {
+  $('.plan').click(function () {
     // Get Plan value when click plan
     let planValue = $('input[name="plan"]:checked').val();
 
@@ -77,4 +75,83 @@ $('document').ready(function() {
     let parent = $(this).closest('.step-content');
     parent.find('.btn-next').removeClass('disabled');
   });
+
+  // Stripe Integration
+  if ($('#payment_form').length > 0) {
+
+    // Create a Stripe client.
+    var stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
+    // Create an instance of Elements.
+    var elements = stripe.elements();
+
+    // Custom styling can be passed to options when creating an Element.
+    // (Note that this demo uses a wider set of styles than the guide below.)
+    var style = {
+      base: {
+        icon: false,
+        color: '#32325d',
+        fontFamily: '"AvenirMedium", sans-serif',
+        fontSmoothing: 'antialiased',
+        fontSize: '15px',
+        '::placeholder': {
+          color: '#a6a6a6'
+        }
+      },
+      invalid: {
+        color: '#fa755a',
+        iconColor: '#fa755a'
+      }
+    };
+
+    // Create an instance of the card Element.
+    var card = elements.create('card', {
+      style: style
+    });
+
+    // Add an instance of the card Element into the `card-element` <div>.
+    card.mount('#card-element');
+
+    // Handle real-time validation errors from the card Element.
+    card.addEventListener('change', function (event) {
+      var displayError = document.getElementById('card-errors');
+      if (event.error) {
+        displayError.textContent = event.error.message;
+      } else {
+        displayError.textContent = '';
+      }
+      document.getElementById('btn_enroll').classList.remove('disabled');
+    });
+
+    // Handle form submission.
+    var form = document.getElementById('payment_form');
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      stripe.createToken(card).then(function (result) {
+        if (result.error) {
+          // Inform the user if there was an error.
+          var errorElement = document.getElementById('card-errors');
+          errorElement.textContent = result.error.message;
+        } else {
+          // Send the token to your server.
+          stripeTokenHandler(result.token);
+        }
+      });
+    });
+
+    // Submit the form with the token ID.
+    function stripeTokenHandler(token) {
+      // Insert the token ID into the form so it gets submitted to the server
+      var form = document.getElementById('payment_form');
+      var hiddenInput = document.createElement('input');
+      hiddenInput.setAttribute('type', 'hidden');
+      hiddenInput.setAttribute('name', 'stripeToken');
+      hiddenInput.setAttribute('value', token.id);
+      form.appendChild(hiddenInput);
+
+      // Submit the form
+      form.submit();
+    }
+  }
 });

@@ -778,12 +778,46 @@ a {
   display: grid;
   grid-template-columns: auto 480px;
   height: calc(100vh - 66px);
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
   .page-content#form_page button:focus, .page-content#form_page button:active,
   .page-content#form_page .btn:focus,
   .page-content#form_page .btn:active {
     outline: none !important;
     box-shadow: none !important; }
+  .page-content#form_page .toolbar {
+    text-align: left;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - 480px);
+    z-index: 1; }
+    .page-content#form_page .toolbar .toolbar-content {
+      display: flex;
+      align-items: center;
+      padding: 10px 40px;
+      color: white;
+      background: #3579e9;
+      box-shadow: 0px 5px 10px #abb2e4; }
+      .page-content#form_page .toolbar .toolbar-content p {
+        margin-bottom: 0; }
+      .page-content#form_page .toolbar .toolbar-content .text-big {
+        flex-shrink: 0;
+        font-family: "AvenirHeavy";
+        font-size: 19px;
+        line-height: 26px; }
+      .page-content#form_page .toolbar .toolbar-content .text-small {
+        margin-left: 20px;
+        text-align: left;
+        font-size: 13px;
+        line-height: 18px; }
+    .page-content#form_page .toolbar .btn-back {
+      display: none;
+      font-family: "AvenirHeavy";
+      font-size: 18px;
+      line-height: 30px;
+      margin-left: 30px;
+      margin-top: 10px; }
   .page-content#form_page .main-panel {
     border-right: solid 0.5px #dbdbdb;
     text-align: center;
@@ -791,7 +825,8 @@ a {
     padding: 90px 20px;
     position: relative;
     min-height: 100%; }
-    .page-content#form_page .main-panel .btn-next {
+    .page-content#form_page .main-panel .btn-next,
+    .page-content#form_page .main-panel #btn_enroll {
       margin: auto;
       margin-top: 100px;
       width: 280px;
@@ -803,42 +838,11 @@ a {
       line-height: 25px;
       border-radius: 50px;
       box-shadow: 0px 2px 12px rgba(195, 195, 195, 0.5); }
-      .page-content#form_page .main-panel .btn-next.disabled {
+      .page-content#form_page .main-panel .btn-next.disabled,
+      .page-content#form_page .main-panel #btn_enroll.disabled {
         opacity: 0.5;
         pointer-events: none;
         cursor: not-allowed; }
-    .page-content#form_page .main-panel .toolbar {
-      text-align: left;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%; }
-      .page-content#form_page .main-panel .toolbar .toolbar-content {
-        display: flex;
-        align-items: center;
-        padding: 10px 40px;
-        color: white;
-        background: #3579e9;
-        box-shadow: 0px 5px 10px #abb2e4; }
-        .page-content#form_page .main-panel .toolbar .toolbar-content p {
-          margin-bottom: 0; }
-        .page-content#form_page .main-panel .toolbar .toolbar-content .text-big {
-          flex-shrink: 0;
-          font-family: "AvenirHeavy";
-          font-size: 19px;
-          line-height: 26px; }
-        .page-content#form_page .main-panel .toolbar .toolbar-content .text-small {
-          margin-left: 20px;
-          text-align: left;
-          font-size: 13px;
-          line-height: 18px; }
-      .page-content#form_page .main-panel .toolbar .btn-back {
-        display: none;
-        font-family: "AvenirHeavy";
-        font-size: 18px;
-        line-height: 30px;
-        margin-left: 30px;
-        margin-top: 10px; }
     .page-content#form_page .main-panel .step-contents {
       text-align: center; }
       .page-content#form_page .main-panel .step-contents .step-content .step-description {
@@ -894,6 +898,10 @@ a {
               border: 2px solid #F2CE50; }
             .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-toggle::placeholder {
               color: #a6a6a6; }
+            .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-toggle::after {
+              color: #434343; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select.show .dropdown-toggle {
+            border: 2px solid #F2CE50; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-menu li a {
             padding: 10px 1.5rem; }
             .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-menu li a span.text {
@@ -985,6 +993,7 @@ a {
           .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
             padding: 0;
             margin: 0;
+            columns: 2;
             list-style: none; }
             .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li {
               position: relative;
@@ -1145,7 +1154,6 @@ a {
       .page-content#form_page .info-panel .content .card {
         margin: auto;
         max-width: 390px;
-        overflow: hidden;
         border: none;
         border-radius: 0 0 30px 30px;
         background: #ffffff;
@@ -1154,8 +1162,7 @@ a {
           position: relative;
           padding: 1.6rem 1.9rem;
           border: none;
-          background: transparent;
-          overflow: hidden; }
+          background: transparent; }
           .page-content#form_page .info-panel .content .card .card-header .card-title {
             font-size: 1.7rem;
             line-height: 2.3rem;
@@ -1163,11 +1170,12 @@ a {
           .page-content#form_page .info-panel .content .card .card-header::before {
             position: absolute;
             content: '';
-            top: 0;
+            top: -8px;
             left: 0;
             width: 100%;
             height: 8px;
-            background: #F2CE50; }
+            background: #F2CE50;
+            border-radius: 26px 26px 0 0; }
         .page-content#form_page .info-panel .content .card .card-body {
           border: 3px solid #F2CE50;
           background: #F2CE50; }
@@ -1532,7 +1540,10 @@ a {
 
   .page-content #reviews .container-fluid .section-content {
     flex-direction: column;
-    justify-content: center; } }
+    justify-content: center; }
+
+  .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
+    columns: 1; } }
 @media only screen and (max-width: 991px) {
   .main-header .navbar-collapse {
     margin-top: 10px; }
@@ -1643,7 +1654,15 @@ a {
     font-size: 16px; }
 
   .page-content#form_page {
-    grid-template-columns: 50% 50%; }
+    grid-template-columns: auto 320px; }
+    .page-content#form_page .toolbar {
+      width: calc(100% - 320px); }
+      .page-content#form_page .toolbar .text-big {
+        width: 100px; }
+    .page-content#form_page .main-panel {
+      padding-top: 150px; }
+      .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper {
+        width: calc(100% - 320px); }
     .page-content#form_page .info-panel .content {
       max-width: 300px; }
       .page-content#form_page .info-panel .content .card .card-header {
@@ -1730,12 +1749,15 @@ a {
   .popup .popup-content .popup-videos .btn-close {
     right: 20px; }
 
-  .page-content#form_page .main-panel .toolbar .toolbar-content {
-    padding: 10px; }
+  .form-header nav {
+    display: none !important; }
+  .form-header .btn-back {
+    display: block !important; }
 
-  .page-content#form_page .main-panel .toolbar .btn-back {
+  .page-content#form_page .toolbar .btn-back {
     display: none; }
-
+  .page-content#form_page .toolbar .toolbar-content {
+    padding: 10px; }
   .page-content#form_page .main-panel {
     padding-left: 0;
     padding-right: 0; }
@@ -1753,16 +1775,41 @@ a {
         .page-content#form_page .main-panel .mobile-step-circles .circle.active {
           background-color: #F2CE50; }
 
-  .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li {
-    color: #848484; }
-  .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper {
+  .page-content#form_page {
+    display: flex;
     flex-direction: column;
-    width: 100%;
-    height: auto;
-    padding: 15px 20px; }
-    .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper .mobile-step-circles {
-      margin-top: 10px; } }
-@media only screen and (max-width: 564px) {
+    height: auto; }
+    .page-content#form_page .toolbar {
+      width: 100%; }
+    .page-content#form_page .main-panel {
+      padding: 50px 20px;
+      order: 1; }
+      .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li {
+        color: #848484; }
+      .page-content#form_page .main-panel .step-contents .step-content#step3 {
+        margin-bottom: 100px; }
+        .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper {
+          flex-direction: column;
+          width: 100%;
+          height: auto;
+          padding: 15px 20px; }
+          .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper .mobile-step-circles {
+            margin-top: 10px; }
+    .page-content#form_page .info-panel {
+      padding: 100px 20px 20px;
+      max-width: 100%; }
+      .page-content#form_page .info-panel .content {
+        position: relative;
+        max-width: 500px;
+        margin: auto;
+        left: 0;
+        top: 0;
+        transform: translate(0, 0); }
+        .page-content#form_page .info-panel .content .custom-slick .slick-prev,
+        .page-content#form_page .info-panel .content .custom-slick .slick-next {
+          top: 50%;
+          transform: translateY(-50%); } }
+@media only screen and (max-width: 576px) {
   .main-header {
     margin-top: 0px; }
     .main-header .navbar .btn-navbar-close {
@@ -1944,7 +1991,8 @@ a {
       font-size: 18px;
       line-height: 30px;
       color: #404040;
-      display: block; }
+      display: block;
+      opacity: 0; }
     .form-header .logo {
       font-size: 26px;
       line-height: 36px; }
@@ -1953,12 +2001,13 @@ a {
 
   .page-content#form_page {
     grid-template-columns: 100%; }
+    .page-content#form_page .toolbar .btn-back {
+      display: none !important; }
     .page-content#form_page .main-panel {
+      padding-top: 100px;
       padding-bottom: 20px;
       text-align: center;
       min-height: none; }
-      .page-content#form_page .main-panel .toolbar .btn-back {
-        display: none !important; }
       .page-content#form_page .main-panel .step-contents .step-content {
         flex-direction: column;
         padding: 50px 20px 0; }
@@ -1976,6 +2025,13 @@ a {
           order: 0; }
         .page-content#form_page .main-panel .step-contents .step-content.active {
           display: flex; }
+        .page-content#form_page .main-panel .step-contents .step-content .plans {
+          margin-bottom: 100px; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
+            display: flex;
+            flex-direction: column; }
+            .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li.disabled {
+              order: 1; }
       .page-content#form_page .main-panel .btn-next {
         position: relative;
         left: 0;
@@ -2002,5 +2058,35 @@ a {
     opacity: 0; }
   to {
     opacity: 1; } }
+/**
+ * The CSS shown here will not be introduced in the Quickstart guide, but shows
+ * how you can use CSS to style your Element's container.
+ */
+.StripeElement {
+  margin-bottom: 17px;
+  height: 60px;
+  padding: 14px 20px;
+  color: #383838;
+  font-family: "AvenirMedium";
+  font-size: 19px;
+  line-height: 30px;
+  border-radius: 5px;
+  border: none;
+  background: #ffffff;
+  box-shadow: 0px 2px 4px rgba(227, 227, 227, 0.5);
+  padding-top: 21px; }
+  .StripeElement:visited, .StripeElement:focus {
+    border: 2px solid #F2CE50; }
+  .StripeElement::placeholder {
+    color: #a6a6a6; }
+
+.StripeElement--focus {
+  border: 2px solid #F2CE50; }
+
+.StripeElement--invalid {
+  border-color: #fa755a; }
+
+.StripeElement--webkit-autofill {
+  background-color: #fefde5 !important; }
 
 /*# sourceMappingURL=style.css.map */
