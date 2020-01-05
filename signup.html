@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KuzoClass | Sign Up</title>
+  <!-- FONTS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- /FONTS -->
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+  <link rel="stylesheet" href="assets/plugins/wow/animate.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+  <!-- /STYLESHEETS -->
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="form-header">
+    <button class="btn btn-back d-block d-md-none"><i class="fas fa-chevron-left"></i> Back</button>
+    <a href="/" class="logo">KuzoClass</a>
+    <nav class="nav d-none d-md-flex">
+      <a href="#step1" class="header-link step-link nav-link" data-toggle="tab">1. Create your account</a>
+      <a href="#step2" class="header-link step-link nav-link" data-toggle="tab">2. Select available time slots</a>
+    </nav>
+    <a href="#faq" class="header-link faq-link" data-toggle="modal" data-target="#faqModal" id="faqModalTitle">FAQs <i class="far fa-question-circle"></i></a>
+  </header>
+  <!-- /HEADER -->
+
+  <!-- CONTENT -->
+  <div class="page-content page-signup" id="form_page">
+    <section class="main-panel">
+      <div class="toolbar">
+        <button class="btn btn-back"><i class="fas fa-chevron-left"></i> Back</button>
+      </div> 
+      <!-- <form> -->
+      <div class="tab-content step-contents">
+        <div class="tab-pane fade show step-content active" id="step1" role="tabpanel">
+          <p class="step-description">Fill in your information</p>
+          <h2 class="step-title">Welcome to KuzoClass!</h2>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email_address" placeholder="Email Address">
+            <input type="password" class="form-control" placeholder="Password" id="password">
+            <select name="" id="country" class="selectpicker">
+              <option value="" selected disabled>Country</option>
+              <option value="">United States</option>
+              <option value="">Russia</option>
+              <option value="">China</option>
+            </select>
+            <select name="" id="gender" class="selectpicker">
+              <option value="" selected disabled>Gender</option>
+              <option value="">Man</option>
+              <option value="">Woman</option>
+            </select>
+            <input type="text" class="form-control" id="birthday" placeholder="Birthday (MM/DD/YYYY)">
+            <input type="text" class="form-control" id="phone_number" placeholder="Phone number">
+            <select name="" id="" class="selectpicker">
+              <option value="" selected disabled>University Major (Actual/Intended/Preferred)</option>
+              <option value="">Actual</option>
+              <option value="">Intended</option>
+              <option value="">Preferred</option>
+            </select>
+          </div>
+        </div>
+        <div class="tab-pane fade show step-content" id="step2" role="tabpanel">
+          <p class="step-description">Choose times you’re available for the live classes</p>
+          <h2 class="step-title">Welcome to KuzoClass!</h2>
+          <div class="google-form"></div>
+          <p class="text">Once you’ve submitted this form, you’ll be on your way! Next steps will be provided via email.
+            Contact <a href="mailto: help@kuzoclass.com">help@kuzoclass.com</a> if you don’t hear from us or having trouble with your enrollment.</p>
+        </div>
+      </div>
+      <button class="btn btn-yellow btn-next">Next</button>
+      <!-- </form> -->
+    </section>
+  </div>
+  <!-- /CONTENT -->
+
+  <!-- FAQ modal -->
+  <!-- Modal -->
+  <div class="modal right fade" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="faqModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">FAQs</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="faq_accordion">
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+                  How are the classes run?
+                </button>
+              </div>
+              <div id="collapse1" class="faq-body collapse show" data-parent="#faq_accordion">
+                <p>
+                  Classes are hosted in small groups, live, twice a week for 90 minutes each. In the first 60 minutes,
+                  you will watch the recorded content together with your Team, followed by a 30-minute discussion
+                  facilitated by a KuzoClass moderator. Every fourth session is a live assignment completed with your
+                  group for the first 60 minutes, followed by a 30-minute facilitated discussion and feedback session.
+                  (Please note, students on the spectator plan do not participate live in the discussion portion,
+                  while Teams on the Elon Musk plan will be paired with Patrick Lee as the moderator)
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseOne">
+                  How big are teams?
+                </button>
+              </div>
+              <div id="collapse2" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vitae voluptatum? Debitis
+                  delectus eveniet magnam non, velit laborum ab animi ratione dignissimos sequi provident quibusdam,
+                  aut doloremque placeat a minima.
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseOne">
+                  How are the classes run?
+                </button>
+              </div>
+              <div id="collapse3" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapseOne">
+                  Can I cancel at any time?
+                </button>
+              </div>
+              <div id="collapse9" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseOne">
+                  When will I be billed?
+                </button>
+              </div>
+              <div id="collapse4" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseOne">
+                  What if I am only available for small windows in the week?
+                </button>
+              </div>
+              <div id="collapse5" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapseOne">
+                  How are points rewarded?
+                </button>
+              </div>
+              <div id="collapse6" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapseOne">
+                  What happens if I am unable to attend classes?
+                </button>
+              </div>
+              <div id="collapse7" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapseOne">
+                  How do I know when and what time my classes are?
+                </button>
+              </div>
+              <div id="collapse8" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- !FAQ modal -->
+
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/js/bootstrap-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script src="assets/plugins/wow/wow.min.js"></script>
+  <script src="assets/js/form.js"></script>
+  <!-- /SCRIPTS -->
+</body>
+
+</html>

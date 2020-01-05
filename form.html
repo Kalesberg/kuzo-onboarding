@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>KuzoClass</title>
+  <!-- FONTS -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <!-- /FONTS -->
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+  <link rel="stylesheet" href="assets/plugins/wow/animate.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
+  <!-- /STYLESHEETS -->
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header class="form-header">
+    <button class="btn btn-back d-block d-md-none"><i class="fas fa-chevron-left"></i> Back</button>
+    <a href="/" class="logo">KuzoClass</a>
+    <nav class="nav d-none d-md-flex">
+      <a href="#step1" class="header-link step-link nav-link active" data-toggle="tab">1. Create</a>
+      <a href="#step2" class="header-link step-link nav-link" data-toggle="tab">2. Choose start date</a>
+      <a href="#step3" class="header-link step-link nav-link" data-toggle="tab">3. Confirm plan</a>
+      <a href="#step4" class="header-link step-link nav-link" data-toggle="tab">4. Complete</a>
+    </nav>
+    <a href="#faq" class="header-link faq-link" data-toggle="modal" data-target="#faqModal" id="faqModalTitle">FAQs <i class="far fa-question-circle"></i></a>
+  </header>
+  <!-- /HEADER -->
+
+  <!-- CONTENT -->
+  <div class="page-content" id="form_page">
+    <section class="main-panel">
+      <div class="toolbar">
+        <div class="toolbar-content">
+          <p class="text-big">Risk-Free Guarantee</p>
+          <p class="text-small">If you're unhappy with your KuzoClass experience within the first 7 days of classes or after completing the
+            accelerator in full, then contact us for a refund.</p>
+        </div>
+        <button class="btn btn-back"><i class="fas fa-chevron-left"></i> Back</button>
+      </div>
+      <form class="tab-content step-contents">
+          <fieldset class="tab-pane fade show step-content active" id="step1" role="tabpanel">
+            <p class="step-description">Enter your information</p>
+            <h2 class="step-title">Let’s learn a bit about you</h2>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="First Name" id="first_name">
+              <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+              <input type="email" class="form-control" id="email_address" placeholder="Email Address">
+            </div>
+            <input type="button" class="btn btn-yellow btn-next disabled" value="Next">
+          </fieldset>
+          <fieldset class="tab-pane fade show step-content" id="step2" role="tabpanel">
+            <p class="step-description">Select an option from the dropdown</p>
+            <h2 class="step-title">We’d like to place you in a cohort</h2>
+            <div class="form-group">
+              <select name="start_date" id="start_date" class="selectpicker">
+                <option value="" selected disabled>Start date</option>
+                <option value="">Jan 30 2020</option>
+                <option value="">Feb 30 2020</option>
+                <option value="">Mar 30 2020</option>
+              </select>
+              <select name="familiarity" id="familiarity" class="selectpicker">
+                <option value="" selected disabled>Familiarity with entrepreneurship</option>
+                <option value="">No experience</option>
+                <option value="">Some experience</option>
+                <option value="">Good experience</option>
+              </select>
+            </div>
+            <input type="button" class="btn btn-yellow btn-next disabled" value="Next">
+          </fieldset>
+          <fieldset class="tab-pane fade show step-content" id="step3" role="tabpanel">
+            <p class="step-description">Select an option</p>
+            <h2 class="step-title">Confirm your plan</h2>
+            <div class="switch-wrapper">
+              <label class="switch-label" for="plan_method">Pay weekly</label>
+              <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="plan_method">
+                <label class="custom-control-label" for="plan_method"></label>
+              </div>
+              <label class="switch-label" for="plan_method">Pay upfront (10% off)</label>
+            </div>
+            <div class="plans" id="weekly_plan">
+              <div class="plan">
+                <span class="plan-grade">Popular</span>
+                <h2 class="plan-name">Founder</h2>
+                <p class="plan-price">$85/week, risk-free guarantee</p>
+                <hr>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <ul>
+                      <li>Access to live classes</li>
+                      <li>Real-world projects</li>
+                      <li>Collaborate with team members</li>
+                      <li>Active participant in project call</li>
+                      <li class="disabled">Mentored by instructor</li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <ul>
+                      <li>Tournament and rewards</li>
+                      <li>Written peer feedback</li>
+                      <li>Active participant in discussion</li>
+                      <li>Live verbal peer feedback</li>
+                      <li class="disabled">Feedback from instructor</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="plan">
+                <span class="plan-grade">Premium</span>
+                <h2 class="plan-name">Mentee</h2>
+                <p class="plan-price">$162/week, risk-free guarantee</p>
+                <hr>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <ul>
+                      <li>Access to live classes</li>
+                      <li>Real-world projects</li>
+                      <li>Collaborate with team members</li>
+                      <li>Active participant in project call</li>
+                      <li>Mentored by instructor</li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <ul>
+                      <li>Tournament and rewards</li>
+                      <li>Written peer feedback</li>
+                      <li>Active participant in discussion</li>
+                      <li>Live verbal peer feedback</li>
+                      <li>Feedback from instructor</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="plan">
+                <span class="plan-grade">Basic</span>
+                <h2 class="plan-name">Spectator</h2>
+                <p class="plan-price">$58/week, risk-free guarantee</p>
+                <hr>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <ul>
+                      <li>Access to live classes</li>
+                      <li>Real-world projects</li>
+                      <li class="disabled">Collaborate with team members</li class="disabled">
+                      <li class="disabled">Active participant in project call</li>
+                      <li class="disabled">Mentored by instructor</li>
+                    </ul>
+                  </div>
+                  <div class="col-lg-6">
+                    <ul>
+                      <li>Tournament and rewards</li>
+                      <li>Written peer feedback</li>
+                      <li class="disabled">Active participant in discussion</li class="disabled">
+                      <li class="disabled">Live verbal peer feedback</li class="disabled">
+                      <li class="disabled">Feedback from instructor</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="button" class="btn btn-yellow btn-next disabled" value="Next">
+          </fieldset>
+          <fieldset class="tab-pane fade show step-content" id="step4" role="tabpanel">
+            <p class="step-description">You're almost there...</p>
+            <h2 class="step-title">Start your KuzoClass</h2>
+            <div class="stripe-card">
+              <input type="text" id="card_number" placeholder="Card number">
+              <input type="text" id="card_expiration_date" placeholder="MM/YY">
+              <input type="text" id="card_cvc" placeholder="CVC">
+            </div>
+            <div class="plan-detail">
+              <div>
+                <span class="plan-detail__title">Chosen Plan</span>
+                <p class="plan-price">$95 / week</p>
+              </div>
+              <div>
+                <p class="plan-name">Founder</p>
+                <p class="plan-total-cost">Due today: $1025</p>
+              </div>
+            </div>
+            <ul>
+              <li><i class="fas fa-check"></i> You’ll be billed for the full accelerator (12 weeks)</li>
+              <li><i class="fas fa-check"></i> If you complete the accelerator and aren’t
+                satisfied, we’ll refund your purchase</li>
+            </ul>
+            <p class="description">By clicking “Enroll Now“ you agree to KuzoClass’ <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Your credit card
+              will be charged immediately.</p>
+            <input type="submit" class="btn btn-yellow btn-next disabled" value="ENROLL NOW">
+          </fieldset>
+      </form>
+      <!-- </form> -->
+    </section>
+    <section class="info-panel">
+      <div class="content">
+        <h2 class="title">KuzoClass</h2>
+        <p class="desc">Entrepreneurship</p>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">The accelerator built for the next Elon Musk.</h3>
+          </div>
+          <div class="card-body">
+            <div class="testimonials custom-slick">
+              <div class="testimonial">
+                <div class="testimonial-avatar">
+                  <img src="assets/images/calvin.png" alt="" class="testimonial-avatar__img">
+                </div>
+                <div class="testimonial-content">
+                  <p class="testimonial-text">“I wanted to hit the ground running and know how to build my startup.
+                    KuzoClass helped me get there – now I have a profitable venture, growing rapidly!</p>
+                  <p class="testimonial-author__name">Calvin M.</p>
+                  <p class="testimonial-author__role">Student at Ryerson University</p>
+                </div>
+              </div>
+              <div class="testimonial">
+                <div class="testimonial-avatar">
+                  <img src="assets/images/calvin.png" alt="" class="testimonial-avatar__img">
+                </div>
+                <div class="testimonial-content">
+                  <p class="testimonial-text">“I wanted to hit the ground running and know how to build my startup.
+                    KuzoClass helped me get there – now I have a profitable venture, growing rapidly!</p>
+                  <p class="testimonial-author__name">Calvin M.</p>
+                  <p class="testimonial-author__role">Student at Ryerson University</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <p class="card-footer__desc">Made with the support of the founders and executives of</p>
+            <div class="company-logos">
+              <img src="assets/images/khan-academy.png" alt="" class="company-logo">
+              <img src="assets/images/top-hat.png" alt="" class="company-logo">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FAQ modal -->
+  <!-- Modal -->
+  <div class="modal right fade" id="faqModal" tabindex="-1" role="dialog" aria-labelledby="faqModalTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">FAQs</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="faq_accordion">
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapseOne">
+                  How are the classes run?
+                </button>
+              </div>
+              <div id="collapse1" class="faq-body collapse show" data-parent="#faq_accordion">
+                <p>
+                  Classes are hosted in small groups, live, twice a week for 90 minutes each. In the first 60 minutes,
+                  you will watch the recorded content together with your Team, followed by a 30-minute discussion
+                  facilitated by a KuzoClass moderator. Every fourth session is a live assignment completed with your
+                  group for the first 60 minutes, followed by a 30-minute facilitated discussion and feedback session.
+                  (Please note, students on the spectator plan do not participate live in the discussion portion,
+                  while Teams on the Elon Musk plan will be paired with Patrick Lee as the moderator)
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapseOne">
+                  How big are teams?
+                </button>
+              </div>
+              <div id="collapse2" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vitae voluptatum? Debitis
+                  delectus eveniet magnam non, velit laborum ab animi ratione dignissimos sequi provident quibusdam,
+                  aut doloremque placeat a minima.
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseOne">
+                  How are the classes run?
+                </button>
+              </div>
+              <div id="collapse3" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapseOne">
+                  Can I cancel at any time?
+                </button>
+              </div>
+              <div id="collapse9" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapseOne">
+                  When will I be billed?
+                </button>
+              </div>
+              <div id="collapse4" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse5" aria-expanded="true" aria-controls="collapseOne">
+                  What if I am only available for small windows in the week?
+                </button>
+              </div>
+              <div id="collapse5" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse6" aria-expanded="true" aria-controls="collapseOne">
+                  How are points rewarded?
+                </button>
+              </div>
+              <div id="collapse6" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse7" aria-expanded="true" aria-controls="collapseOne">
+                  What happens if I am unable to attend classes?
+                </button>
+              </div>
+              <div id="collapse7" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse8" aria-expanded="true" aria-controls="collapseOne">
+                  How do I know when and what time my classes are?
+                </button>
+              </div>
+              <div id="collapse8" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
+                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
+                  ducimus eaque?
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- !FAQ modal -->
+
+  <!-- SCRIPTS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/js/bootstrap-select.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+  <script src="assets/plugins/wow/wow.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="assets/js/form.js"></script>
+  <!-- /SCRIPTS -->
+</body>
+
+</html>
