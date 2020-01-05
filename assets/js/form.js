@@ -33,16 +33,17 @@ $('document').ready(function() {
 
   // Active Next button when all fields are selected
   function liveUpdateNextButton(elmnt) {
-    let parent = elmnt.closest('fieldset');
+    let parent = elmnt.closest('.step-content');
     let flag = true;
     let nextBtn = parent.find('.btn-next');
     parent.find('.form-control').each(function() {
-      if (!elmnt.val()) flag = false;
+      if (!$(this).val()) flag = false;
     });
-    parent.find('.selectpicker').each(function() {
-      console.log(elmnt.val(), flag);
-      if (!elmnt.val()) flag = false;
-    })
+    if (parent.find('.selectpicker')) {
+      parent.find('.selectpicker').each(function() {
+        if (!$(this).val()) flag = false;
+      });
+    }
     if ( flag == true ) {
       nextBtn.removeClass('disabled');
     } else {  
@@ -52,7 +53,28 @@ $('document').ready(function() {
   $('input.form-control').on('change', function() {
     liveUpdateNextButton($(this));
   });
-  $('fieldset select').on('change', function() {
+  $('.step-content select').on('change', function() {
     liveUpdateNextButton($(this));
+  });
+
+  // Change Plan
+  $('#plan_method').on('change', function() {
+    $('.switch-label').toggleClass('active');
+    // Show changed plans
+    $('.plans.active').fadeOut('300');
+    $('.plans').toggleClass('active');
+    $('.plans.active').fadeIn('300');
+  });
+  
+  // Select plan when click plan items
+  $('.plan').click(function() {
+    // Get Plan value when click plan
+    let planValue = $('input[name="plan"]:checked').val();
+
+    $(this).find('input').prop('checked', true);
+    $('.plan.active').removeClass('active');
+    $(this).addClass('active');
+    let parent = $(this).closest('.step-content');
+    parent.find('.btn-next').removeClass('disabled');
   });
 });

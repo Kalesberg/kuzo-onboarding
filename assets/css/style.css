@@ -801,7 +801,8 @@ a {
       font-family: "AvenirHeavy";
       font-size: 18px;
       line-height: 25px;
-      border-radius: 50px; }
+      border-radius: 50px;
+      box-shadow: 0px 2px 12px rgba(195, 195, 195, 0.5); }
       .page-content#form_page .main-panel .btn-next.disabled {
         opacity: 0.5;
         pointer-events: none;
@@ -909,17 +910,22 @@ a {
         margin: auto;
         margin-bottom: 50px;
         display: flex;
-        justify-content: center; }
+        justify-content: center;
+        cursor: pointer; }
         .page-content#form_page .main-panel .step-contents .step-content .switch-wrapper .switch-label {
           position: absolute;
           top: 1px;
           margin: 0;
+          text-align: left;
           font-family: "AvenirMedium";
           font-size: 17px;
           line-height: 30px;
+          width: 100px;
           color: #707070; }
+          .page-content#form_page .main-panel .step-contents .step-content .switch-wrapper .switch-label.active {
+            color: #3579e9; }
           .page-content#form_page .main-panel .step-contents .step-content .switch-wrapper .switch-label:first-child {
-            right: calc(50% + 60px); }
+            right: calc(50% + 40px); }
           .page-content#form_page .main-panel .step-contents .step-content .switch-wrapper .switch-label:last-child {
             left: calc(50% + 30px); }
         .page-content#form_page .main-panel .step-contents .step-content .switch-wrapper .custom-switch {
@@ -939,62 +945,86 @@ a {
           .page-content#form_page .main-panel .step-contents .step-content .switch-wrapper .custom-switch .custom-control-input:checked ~ .custom-control-label::after {
             background: white;
             left: -20px; }
-      .page-content#form_page .main-panel .step-contents .step-content .plans .plan {
-        margin: auto;
-        max-width: 650px;
-        width: 100%;
-        text-align: left;
-        padding: 30px 50px;
-        margin-bottom: 40px;
-        border-radius: 30px;
-        background: #ffffff;
-        box-shadow: 2px 4px 24px rgba(195, 195, 195, 0.5); }
-        .page-content#form_page .main-panel .step-contents .step-content .plans .plan-grade {
-          margin-bottom: 10px;
-          font-family: "AvenirMedium";
-          font-size: 15px;
-          line-height: 20px;
-          color: #F2CE50; }
-        .page-content#form_page .main-panel .step-contents .step-content .plans .plan-name {
-          font-family: "AvenirHeavy";
-          font-size: 28px;
-          line-height: 38px;
-          color: #383838; }
-        .page-content#form_page .main-panel .step-contents .step-content .plans .plan-price {
-          font-family: "AvenirHeavy";
-          color: #737373;
-          font-size: 17px;
-          line-height: 23px; }
-        .page-content#form_page .main-panel .step-contents .step-content .plans .plan hr {
-          border-color: #e8e8e8; }
-        .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
-          padding: 0;
-          margin: 0;
-          list-style: none; }
-          .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li {
-            position: relative;
-            padding-left: 30px;
+      .page-content#form_page .main-panel .step-contents .step-content .plans {
+        display: none; }
+        .page-content#form_page .main-panel .step-contents .step-content .plans.active {
+          display: block; }
+        .page-content#form_page .main-panel .step-contents .step-content .plans .plan {
+          margin: auto;
+          max-width: 650px;
+          width: 100%;
+          text-align: left;
+          padding: 30px 50px;
+          margin-bottom: 40px;
+          border-radius: 20px;
+          background: #ffffff;
+          border: 2px solid transparent;
+          box-shadow: 2px 4px 24px rgba(195, 195, 195, 0.5);
+          transition: border .3s ease-in-out;
+          cursor: pointer; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan.active {
+            border-color: #F2CE50; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan-grade {
+            margin-bottom: 10px;
+            font-family: "AvenirMedium";
             font-size: 15px;
-            line-height: 32px; }
-            .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li::before {
-              position: absolute;
-              top: 10px;
-              left: 0;
-              content: '\f00c';
-              font-family: "Font Awesome 5 Free";
-              font-weight: 900;
-              -moz-osx-font-smoothing: grayscale;
-              -webkit-font-smoothing: antialiased;
-              display: inline-block;
-              font-style: normal;
-              font-variant: normal;
-              text-rendering: auto;
-              line-height: 1;
-              color: #F2CE50; }
-            .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li.disabled {
-              opacity: 0.3; }
-        .page-content#form_page .main-panel .step-contents .step-content .plans .plan:last-child {
-          margin-bottom: 0; }
+            line-height: 20px;
+            color: #F2CE50; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan-name {
+            font-family: "AvenirHeavy";
+            font-size: 28px;
+            line-height: 38px;
+            color: #383838; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan-price {
+            font-family: "AvenirHeavy";
+            color: #737373;
+            font-size: 17px;
+            line-height: 23px; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan hr {
+            border-color: #e8e8e8; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
+            padding: 0;
+            margin: 0;
+            list-style: none; }
+            .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li {
+              position: relative;
+              padding-left: 30px;
+              font-size: 15px;
+              line-height: 32px; }
+              .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li::before {
+                position: absolute;
+                top: 10px;
+                left: 0;
+                content: '\f00c';
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                display: inline-block;
+                font-style: normal;
+                font-variant: normal;
+                text-rendering: auto;
+                line-height: 1;
+                color: #F2CE50; }
+              .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li.disabled {
+                opacity: 0.3; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan:last-child {
+            margin-bottom: 0; }
+      .page-content#form_page .main-panel .step-contents .step-content#step3 {
+        margin-bottom: 50px; }
+        .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper {
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: calc(100% - 480px);
+          height: 100px;
+          background: #ffffff;
+          box-shadow: 0px -4px 4px rgba(216, 216, 216, 0.5); }
+          .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper .btn-next {
+            margin: auto; }
       .page-content#form_page .main-panel .step-contents .step-content#step4 {
         max-width: 480px;
         margin: auto; }
@@ -1077,6 +1107,8 @@ a {
             outline: none;
             box-shadow: none;
             border: none; }
+          .page-content#form_page .main-panel .step-contents .step-content .stripe-card input#card_number {
+            width: 100%; }
           .page-content#form_page .main-panel .step-contents .step-content .stripe-card input#card_expiration_date {
             margin-left: auto;
             margin-right: 20px;
@@ -1086,7 +1118,8 @@ a {
     .page-content#form_page .main-panel::-webkit-scrollbar {
       width: 10px; }
     .page-content#form_page .main-panel::-webkit-scrollbar-track {
-      background: #f1f1f1; }
+      background: #fff;
+      border-left: 0.5px solid #dfdfdf; }
     .page-content#form_page .main-panel::-webkit-scrollbar-thumb {
       background: #c8c8c8;
       border-radius: 10px; }
@@ -1701,7 +1734,34 @@ a {
     padding: 10px; }
 
   .page-content#form_page .main-panel .toolbar .btn-back {
-    display: none; } }
+    display: none; }
+
+  .page-content#form_page .main-panel {
+    padding-left: 0;
+    padding-right: 0; }
+    .page-content#form_page .main-panel .mobile-step-circles {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 30px; }
+      .page-content#form_page .main-panel .mobile-step-circles .circle {
+        width: 15px;
+        height: 15px;
+        margin-right: 20px;
+        background-color: #f0f0f0;
+        border-radius: 50%; }
+        .page-content#form_page .main-panel .mobile-step-circles .circle.active {
+          background-color: #F2CE50; }
+
+  .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul li {
+    color: #848484; }
+  .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper {
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    padding: 15px 20px; }
+    .page-content#form_page .main-panel .step-contents .step-content#step3 .button-wrapper .mobile-step-circles {
+      margin-top: 10px; } }
 @media only screen and (max-width: 564px) {
   .main-header {
     margin-top: 0px; }
@@ -1894,11 +1954,16 @@ a {
   .page-content#form_page {
     grid-template-columns: 100%; }
     .page-content#form_page .main-panel {
-      text-align: center; }
+      padding-bottom: 20px;
+      text-align: center;
+      min-height: none; }
+      .page-content#form_page .main-panel .toolbar .btn-back {
+        display: none !important; }
       .page-content#form_page .main-panel .step-contents .step-content {
-        margin-bottom: 50px;
         flex-direction: column;
-        padding: 50px 20px; }
+        padding: 50px 20px 0; }
+        .page-content#form_page .main-panel .step-contents .step-content > * {
+          order: 2; }
         .page-content#form_page .main-panel .step-contents .step-content .step-description {
           margin-bottom: 35px;
           font-size: 16px;
@@ -1907,9 +1972,8 @@ a {
         .page-content#form_page .main-panel .step-contents .step-content .step-title {
           font-size: 26px;
           line-height: 30px;
-          margin-bottom: 0px; }
-        .page-content#form_page .main-panel .step-contents .step-content .form-group {
-          order: 2; }
+          margin-bottom: 5px;
+          order: 0; }
         .page-content#form_page .main-panel .step-contents .step-content.active {
           display: flex; }
       .page-content#form_page .main-panel .btn-next {
@@ -1917,7 +1981,8 @@ a {
         left: 0;
         bottom: 0;
         transform: translate(0, 0);
-        margin: auto; }
+        margin: auto;
+        margin-top: 50px; }
     .page-content#form_page .info-panel {
       display: none; }
 
