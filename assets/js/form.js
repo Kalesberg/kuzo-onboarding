@@ -6,10 +6,26 @@ $('document').ready(function () {
     let old = $(className + '.active');
     old.next().addClass('active');
     old.removeClass('active');
+    old.next().css({
+      left: '100px',
+      opacity: 0
+    });
+    old.next().animate({
+      opacity: 1,
+      left: 0
+    }, 300);
   }
   function activePrevElement(className) {
     let old = $(className + '.active');
     old.prev().addClass('active');
+    old.prev().css({
+      left: '-100px',
+      opacity: 0
+    });
+    old.prev().animate({
+      opacity: 1,
+      left: 0
+    }, 300);
     old.removeClass('active');
   }
   function liveUpdateNextButton(elmnt) {
@@ -52,9 +68,16 @@ $('document').ready(function () {
     let plan = $('.plan.active');
     let planName = plan.find('.plan-name').text();
     let planPrice = plan.find('.price').text();
-    console.log(plan, planName, planPrice);
     $('#chosen_plan_price').text(planPrice);
     $('#chosen_plan_name').text(planName);
+    if ($('.plans.active').attr('id') == 'weekly_plan') {
+      $('#step4').removeClass('annual');
+      $('#step4').addClass('weekly');
+    }
+    if ($('.plans.active').attr('id') == 'annual_plan') {
+      $('#step4').removeClass('weekly');
+      $('#step4').addClass('annual');
+    }
     // $('#bill_today').
   });
   // Show prev content when click prev button

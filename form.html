@@ -33,7 +33,7 @@
       <a href="#step3" class="header-link step-link nav-link" data-toggle="tab">3. Confirm plan</a>
       <a href="#step4" class="header-link step-link nav-link" data-toggle="tab">4. Complete</a>
     </nav>
-    <a href="#faq" class="header-link faq-link" data-toggle="modal" data-target="#faqModal" id="faqModalTitle">FAQs <i class="far fa-question-circle"></i></a>
+    <a href="#faq" class="header-link faq-link" data-toggle="modal" data-target="#faqModal" id="faqModalTitle"><span>FAQs</span> <i class="far fa-question-circle"></i></a>
   </header>
   <!-- /HEADER -->
 
@@ -49,7 +49,7 @@
     </div>
     <section class="main-panel">
       <form class="tab-content step-contents" id="payment_form">
-          <div class="tab-pane fade show step-content " id="step1" role="tabpanel">
+          <div class="tab-pane fade show step-content active" id="step1" role="tabpanel">
             <p class="step-description">Enter your information</p>
             <h2 class="step-title">Let’s learn a bit about you</h2>
             <div class="form-group">
@@ -91,7 +91,7 @@
               <span class="circle"></span>
             </div>
           </div>
-          <div class="tab-pane fade show step-content active" id="step3" role="tabpanel">
+          <div class="tab-pane fade show step-content" id="step3" role="tabpanel">
             <p class="step-description">Select an option</p>
             <h2 class="step-title">Confirm your plan</h2>
             <div class="switch-wrapper">
@@ -161,7 +161,7 @@
                 </ul>
               </div>
             </div>
-            <div class="plans" id="upfront_plan">
+            <div class="plans" id="annual_plan">
               <div class="plan">
                 <input type="radio" name="plan" value="upfront_popular" class="d-none">
                 <span class="plan-grade">Popular</span>
@@ -254,11 +254,13 @@
             </div>
             <ul>
               <li><i class="fas fa-check"></i> You’ll be billed for the full accelerator (12 weeks)</li>
-              <li><i class="fas fa-check"></i> If you complete the accelerator and aren’t
+              <li class="annual-content"><i class="fas fa-check"></i> If you complete the accelerator and aren’t
                 satisfied, we’ll refund your purchase</li>
+              <li class="weekly-content"><i class="fas fa-check"></i> Cancel before each week of classes to end the plan</li>
             </ul>
-            <p class="description">By clicking “Enroll Now“ you agree to KuzoClass’ <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Your credit card
-              will be charged immediately.</p>
+            <p class="description">By clicking “Enroll Now“ you agree to KuzoClass’ <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
+              <span class="annual-content">Your credit card will be charged immediately.</span>
+              <span class="weekly-content">Your credit card will be charged weekly and your fees may vary based on how we bill.</span></p>
             <input type="submit" class="btn btn-yellow disabled" value="ENROLL NOW" id="btn_enroll">
             <div class="mobile-step-circles">
               <span class="circle active"></span>
@@ -307,8 +309,8 @@
           <div class="card-footer">
             <p class="card-footer__desc">Made with the support of the founders and executives of</p>
             <div class="company-logos">
-              <img src="assets/images/khan-academy.png" alt="" class="company-logo">
-              <img src="assets/images/top-hat.png" alt="" class="company-logo">
+              <img src="assets/images/khan-academy.png" alt="" class="company-logo" id="khan">
+              <img src="assets/images/top-hat.png" alt="" class="company-logo" id="tophat">
             </div>
           </div>
         </div>

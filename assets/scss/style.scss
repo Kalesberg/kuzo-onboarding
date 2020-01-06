@@ -293,6 +293,12 @@ a {
   .faq-link {
     pointer-events: auto;
     opacity: 1;
+    span {
+      transition: all .3s ease-in-out;
+    }
+    &:hover span {
+      transform: translateX(-10px);
+    }
   }
 }
 
@@ -1109,8 +1115,11 @@ a {
         }
       // }
       .step-contents {
-        text-align: center;
+        overflow-x: hidden;
         .step-content {
+          position: relative;
+          text-align: center;
+          transition: all .3s ease-in-out;
           .step-description {
             font-family: $fontMedium;
             font-size: 16px;
@@ -1329,6 +1338,26 @@ a {
           &#step4 {
             max-width: 480px;
             margin: auto;
+            .weekly-content,
+            .annual-content {
+              display: none;
+            }
+            &.weekly {
+              .weekly-content {
+                display: block;
+              }
+              .annual-content {
+                display: none;
+              }
+            }
+            &.annual {
+              .weekly-content {
+                display: none;
+              }
+              .annual-content {
+                display: block;
+              }
+            }
           }
           .plan-detail {
             padding: 15px 20px;
@@ -1559,8 +1588,12 @@ a {
               margin-top: 20px;
               display: flex;
               justify-content: space-between;
-              .company-logo {
-                width: 40%;
+              align-items: center;
+              #khan {
+                width: 45%;
+              }
+              #tophat {
+                width: 38%;
               }
             }
           }
@@ -1824,8 +1857,8 @@ a {
         }
         .faq-body p {
           font-family: $fontLight;
-          font-size: 14px;
-          line-height: 19px;
+          font-size: 16px;
+          line-height: 24px;
           color: #404040;
         }
       }
@@ -2253,13 +2286,16 @@ a {
         align-items: center;
         margin-top: 30px;
         .circle {
-          width: 15px;
-          height: 15px;
+          width: 12px;
+          height: 12px;
           margin-right: 20px;
           background-color: #f0f0f0;
           border-radius: 50%;
           &.active {
             background-color: $yellow;
+          }
+          &:last-child {
+            margin-right: 0;  
           }
         }
       }
@@ -2531,6 +2567,7 @@ a {
         }
       }
     }
+    
     .logo {
       font-size: 26px;
       line-height: 36px;
@@ -2626,6 +2663,27 @@ a {
   to { opacity: 1;}
 }
 
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 // Stripe
 /**
  * The CSS shown here will not be introduced in the Quickstart guide, but shows
