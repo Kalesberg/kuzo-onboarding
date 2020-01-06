@@ -1128,6 +1128,12 @@ a {
             margin: auto;
             .form-control {
               @include formStyle();
+              &.error {
+                border-color: red !important;
+              }
+            }
+            .error {
+              color: red;
             }
             .bootstrap-select {
               width: 100%;
@@ -1168,6 +1174,10 @@ a {
                 }
               }
             }
+          }
+          #card-errors {
+            color: red;
+            margin-bottom: 20px;
           }
           .switch-wrapper {
             position: relative;
@@ -1305,6 +1315,7 @@ a {
               height: 100px;
               background: #ffffff;
               box-shadow: 0px -4px 4px rgba(216,216,216,0.5);
+              z-index: 2;
               .btn-next {
                 margin: auto;
               }
@@ -2251,6 +2262,9 @@ a {
     height: auto;
     .toolbar {
       width: 100%;
+      .btn-back {
+        display: none !important;
+      }
     }
     .main-panel {
       padding: 50px 20px;

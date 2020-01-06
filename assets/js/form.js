@@ -1,4 +1,7 @@
 $('document').ready(function () {
+  // Init Animation
+  new WOW().init({offset: 300});
+  
   function activeNextElement(className) {
     let old = $(className + '.active');
     old.next().addClass('active');
@@ -9,37 +12,13 @@ $('document').ready(function () {
     old.prev().addClass('active');
     old.removeClass('active');
   }
-  $('.testimonials').slick({
-    dots: false,
-    arrows: true,
-    autoplay: true,
-    slideToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2000,
-  });
-  $('.btn-next').click(function () {
-    $('.btn-back').show();
-    activeNextElement('.step-content');
-    activeNextElement('.step-link');
-    $('.form-header .btn-back').css('opacity', 1);
-  });
-  $('.btn-back').click(function () {
-      activePrevElement('.step-content');
-      activePrevElement('.step-link');
-    if ($('.step-content').first().hasClass('active')) {
-      $(this).hide();
-      $('.form-header .btn-back').css('opacity', 0);
-    }
-  });
-
-  // Active Next button when all fields are selected
   function liveUpdateNextButton(elmnt) {
     let parent = elmnt.closest('.step-content');
     let flag = true;
     let nextBtn = parent.find('.btn-next');
     parent.find('.form-control').each(function () {
       if (!$(this).val()) flag = false;
+      if ($(this).hasClass('error')) flag = false;
     });
     if (parent.find('.selectpicker')) {
       parent.find('.selectpicker').each(function () {
@@ -52,7 +31,35 @@ $('document').ready(function () {
       nextBtn.addClass('disabled');
     }
   }
-  $('input.form-control').keydown(function () {
+  // Init Testimonial Slider
+  $('.testimonials').slick({
+    dots: false,
+    arrows: true,
+    autoplay: true,
+    slideToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+  });
+  // Show next content when click next button
+  $('.btn-next').click(function () {
+    $('.btn-back').show();
+    activeNextElement('.step-content');
+    activeNextElement('.step-link');
+    $('.form-header .btn-back').css('opacity', 1);
+  });
+  // Show prev content when click prev button
+  $('.btn-back').click(function () {
+      activePrevElement('.step-content');
+      activePrevElement('.step-link');
+    if ($('.step-content').first().hasClass('active')) {
+      $(this).hide();
+      $('.form-header .btn-back').css('opacity', 0);
+    }
+  });
+
+  // Active Next button when all fields are selected
+   $('input.form-control').keydown(function () {
     liveUpdateNextButton($(this));
   });
   $('.step-content select').change(function () {
@@ -83,7 +90,13 @@ $('document').ready(function () {
   // Add active class when click selectpicker
   $('.selectpicker').on('changed.bs.select', function() {
     $(this).closest('.bootstrap-select').addClass('active');
-  })
+  });
+  $('.selectpicker').on('rendered.bs.select', function() {
+    let delay = $(this).data('wow-delay');
+    let parent = $(this).closest('.bootstrap-select');
+    parent.attr('data-wow-delay', delay);
+    parent.addClass('wow fadeInLeft');
+  });
 
   // Stripe Integration
   if ($('#payment_form').length > 0) {
@@ -163,4 +176,16 @@ $('document').ready(function () {
       form.submit();
     }
   }
+
+  // Form Validation
+  $('form').validate({
+    rules: {
+      birthday: {
+        dateISO: true
+      },
+      phonenumber: {
+        phoneUS: true
+      }
+    }
+  });
 });

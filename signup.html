@@ -42,43 +42,43 @@
         <button class="btn btn-back"><i class="fas fa-chevron-left"></i> Back</button>
       </div> 
       <!-- <form> -->
-      <div class="tab-content step-contents">
+      <form class="tab-content step-contents">
         <div class="tab-pane fade show step-content active" id="step1" role="tabpanel">
-          <p class="step-description">Fill in your information</p>
-          <h2 class="step-title">Welcome to KuzoClass!</h2>
+          <p class="step-description wow fadeInDown">Fill in your information</p>
+          <h2 class="step-title wow fadeInDown" data-wow-delay="0.3s">Welcome to KuzoClass!</h2>
           <div class="form-group">
-            <input type="email" class="form-control" id="email_address" placeholder="Email Address">
-            <input type="password" class="form-control" placeholder="Password" id="password">
-            <select name="" id="country" class="selectpicker">
+            <input type="email" class="form-control wow fadeInLeft" data-wow-delay="0.6s" id="email_address" placeholder="Email Address">
+            <input type="password" class="form-control wow fadeInLeft" data-wow-delay="0.9s" placeholder="Password" id="password">
+            <select name="" id="country" class="selectpicker wow fadeInLeft" data-wow-delay="1.2s">
               <option value="" selected disabled>Country</option>
-              <option value="">United States</option>
-              <option value="">Russia</option>
-              <option value="">China</option>
+              <option value="1">United States</option>
+              <option value="2">Russia</option>
+              <option value="3">China</option>
             </select>
-            <select name="" id="gender" class="selectpicker">
+            <select name="" id="gender" class="selectpicker wow fadeInLeft" data-wow-delay="1.5s">
               <option value="" selected disabled>Gender</option>
-              <option value="">Man</option>
-              <option value="">Woman</option>
+              <option value="1">Man</option>
+              <option value="2">Woman</option>
             </select>
-            <input type="text" class="form-control" id="birthday" placeholder="Birthday (MM/DD/YYYY)">
-            <input type="text" class="form-control" id="phone_number" placeholder="Phone number">
-            <select name="" id="" class="selectpicker">
+            <input type="text" class="form-control wow fadeInLeft" data-wow-delay="1.8s" name="birthday" id="birthday" placeholder="Birthday (YYYY/MM/DD)">
+            <input type="text" class="form-control wow fadeInLeft" data-wow-delay="2.1s" name="phonenumber" id="phonenumber" placeholder="Phone number">
+            <select name="" id="" class="selectpicker wow fadeInLeft" data-wow-delay="2.4s">
               <option value="" selected disabled>University Major (Actual/Intended/Preferred)</option>
-              <option value="">Actual</option>
-              <option value="">Intended</option>
-              <option value="">Preferred</option>
+              <option value="1">Actual</option>
+              <option value="2">Intended</option>
+              <option value="3">Preferred</option>
             </select>
-            <button class="btn btn-yellow btn-next disabled">Next</button>
+            <input type="button" class="btn btn-yellow btn-next disabled wow fadeInUp" data-wow-delay="2.7s" value="Next">
           </div>
         </div>
         <div class="tab-pane fade show step-content" id="step2" role="tabpanel">
-          <p class="step-description">Choose times you’re available for the live classes</p>
-          <h2 class="step-title">Welcome to KuzoClass!</h2>
-          <div class="google-form"></div>
-          <p class="text">Once you’ve submitted this form, you’ll be on your way! Next steps will be provided via email.
+          <p class="step-description wow fadeInDown">Choose times you’re available for the live classes</p>
+          <h2 class="step-title wow fadeInDown" data-wow-delay="0.3s">Welcome to KuzoClass!</h2>
+          <div class="google-form wow fadeInDown"></div>
+          <p class="text wow fadeInDown" data-wow-delay="0.6s">Once you’ve submitted this form, you’ll be on your way! Next steps will be provided via email.
             Contact <a href="mailto: help@kuzoclass.com">help@kuzoclass.com</a> if you don’t hear from us or having trouble with your enrollment.</p>
         </div>
-      </div>
+      </form>
       <!-- </form> -->
     </section>
   </div>
@@ -246,6 +246,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.12/js/bootstrap-select.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
   <script src="assets/plugins/wow/wow.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
   <script src="assets/js/form.js"></script>
   <!-- /SCRIPTS -->
 </body>
