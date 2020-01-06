@@ -290,7 +290,8 @@ a {
     opacity: 0.5;
     &.active {
       opacity: 1;
-      color: $yellow;
+      color: $black;
+      font-weight: bold;
       pointer-events: auto;
     }
   }
@@ -1140,10 +1141,11 @@ a {
                   color: #434343;
                 }
               }
-              &.show {
-                .dropdown-toggle {
-                  border: 2px solid $yellow;
-                }
+              &.active .dropdown-toggle {
+                color: $black;
+              }
+              &.show .dropdown-toggle {
+                border: 2px solid $yellow;
               }
               .dropdown-menu {
                 li {

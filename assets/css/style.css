@@ -200,7 +200,8 @@ a {
     opacity: 0.5; }
     .form-header .header-link.active {
       opacity: 1;
-      color: #F2CE50;
+      color: #383838;
+      font-weight: bold;
       pointer-events: auto; }
   .form-header .faq-link {
     pointer-events: auto;
@@ -900,6 +901,8 @@ a {
               color: #a6a6a6; }
             .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-toggle::after {
               color: #434343; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select.active .dropdown-toggle {
+            color: #383838; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select.show .dropdown-toggle {
             border: 2px solid #F2CE50; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-menu li a {

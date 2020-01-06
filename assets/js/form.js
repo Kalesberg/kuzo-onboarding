@@ -4,6 +4,11 @@ $('document').ready(function () {
     old.next().addClass('active');
     old.removeClass('active');
   }
+  function activePrevElement(className) {
+    let old = $(className + '.active');
+    old.prev().addClass('active');
+    old.removeClass('active');
+  }
   $('.testimonials').slick({
     dots: false,
     arrows: true,
@@ -20,9 +25,8 @@ $('document').ready(function () {
     $('.form-header .btn-back').css('opacity', 1);
   });
   $('.btn-back').click(function () {
-    let old = $('.step-content.active');
-    old.prev().addClass('active');
-    old.removeClass('active');
+      activePrevElement('.step-content');
+      activePrevElement('.step-link');
     if ($('.step-content').first().hasClass('active')) {
       $(this).hide();
       $('.form-header .btn-back').css('opacity', 0);
@@ -48,15 +52,15 @@ $('document').ready(function () {
       nextBtn.addClass('disabled');
     }
   }
-  $('input.form-control').on('keypress', function () {
+  $('input.form-control').keydown(function () {
     liveUpdateNextButton($(this));
   });
-  $('.step-content select').on('change', function () {
+  $('.step-content select').change(function () {
     liveUpdateNextButton($(this));
   });
 
   // Change Plan
-  $('#plan_method').on('change', function () {
+  $('#plan_method').change(function () {
     $('.switch-label').toggleClass('active');
     // Show changed plans
     $('.plans.active').fadeOut('300');
@@ -75,6 +79,11 @@ $('document').ready(function () {
     let parent = $(this).closest('.step-content');
     parent.find('.btn-next').removeClass('disabled');
   });
+
+  // Add active class when click selectpicker
+  $('.selectpicker').on('changed.bs.select', function() {
+    $(this).closest('.bootstrap-select').addClass('active');
+  })
 
   // Stripe Integration
   if ($('#payment_form').length > 0) {
