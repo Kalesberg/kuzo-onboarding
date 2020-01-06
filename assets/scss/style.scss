@@ -1508,13 +1508,16 @@ a {
             .custom-slick {
               .slick-next {
                 right: -20px;
+                background: center / contain no-repeat url('../images/chevron-right.svg');
               }
               .slick-prev {
                 left: -20px;
+                background: center / contain no-repeat url('../images/chevron-left.svg');
               }
-              .slick-next:hover::before,
-              .slick-prev:hover::before {
+              .slick-next::before,
+              .slick-prev::before {
                 color: white;
+                content: none !important;
               }
             }
           }

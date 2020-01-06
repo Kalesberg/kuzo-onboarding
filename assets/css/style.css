@@ -1207,12 +1207,15 @@ a {
                 line-height: 16px;
                 margin-bottom: 0; }
           .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-next {
-            right: -20px; }
+            right: -20px;
+            background: center/contain no-repeat url("../images/chevron-right.svg"); }
           .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-prev {
-            left: -20px; }
-          .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-next:hover::before,
-          .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-prev:hover::before {
-            color: white; }
+            left: -20px;
+            background: center/contain no-repeat url("../images/chevron-left.svg"); }
+          .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-next::before,
+          .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-prev::before {
+            color: white;
+            content: none !important; }
         .page-content#form_page .info-panel .content .card .card-footer {
           padding: 30px;
           border: none;
