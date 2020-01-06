@@ -39,7 +39,7 @@
 
   <!-- CONTENT -->
   <div class="page-content" id="form_page">
-    <div class="toolbar wow fadeInDown">
+    <div class="toolbar">
       <div class="toolbar-content">
         <p class="text-big">Risk-Free Guarantee</p>
         <p class="text-small">If you're unhappy with your KuzoClass experience within the first 7 days of classes or after completing the
@@ -47,53 +47,54 @@
       </div>
       <button class="btn btn-back"><i class="fas fa-chevron-left"></i> Back</button>
     </div>
-    <section class="main-panel wow fadeInLeft">
+    <section class="main-panel">
       <form class="tab-content step-contents" id="payment_form">
-          <div class="tab-pane fade show step-content active" id="step1" role="tabpanel">
-            <p class="step-description wow fadeInLeft" data-wow-delay="0.4s">Enter your information</p>
-            <h2 class="step-title wow fadeInLeft" data-wow-delay="0.7s">Let’s learn a bit about you</h2>
+          <div class="tab-pane fade show step-content " id="step1" role="tabpanel">
+            <p class="step-description">Enter your information</p>
+            <h2 class="step-title">Let’s learn a bit about you</h2>
             <div class="form-group">
-              <input type="text" class="form-control wow fadeInLeft" data-wow-delay="1s" placeholder="First Name" id="first_name">
-              <input type="text" class="form-control wow fadeInLeft" data-wow-delay="1.3s" id="last_name" placeholder="Last Name">
-              <input type="email" class="form-control wow fadeInLeft" data-wow-delay="1.6s" id="email_address" placeholder="Email Address">
+              <input type="text" class="form-control" placeholder="First Name" id="first_name">
+              <input type="text" class="form-control" id="last_name" placeholder="Last Name">
+              <input type="email" class="form-control" id="email_address" placeholder="Email Address">
             </div>
-            <input type="button" class="btn btn-yellow btn-next disabled wow fadeInUp" data-wow-delay="1.9s" value="Next">
+            <input type="button" class="btn btn-yellow btn-next disabled" value="Next">
             <div class="mobile-step-circles">
-              <span class="wow fadeInLeft circle active" data-wow-delay="1.9s"></span>
-              <span class="wow fadeInLeft circle" data-wow-delay="2s"></span>
-              <span class="wow fadeInLeft circle" data-wow-delay="2.1s"></span>
-              <span class="wow fadeInLeft circle" data-wow-delay="2.2s"></span>
+              <span class="circle active"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
             </div>
           </div>
           <div class="tab-pane fade show step-content" id="step2" role="tabpanel">
-            <p class="step-description wow fadeInLeft" data-wow-delay="0.4s">Select an option from the dropdown</p>
-            <h2 class="step-title wow fadeInLeft" data-wow-delay="0.7s">We’d like to place you in a cohort</h2>
+            <p class="step-description">Select an option from the dropdown</p>
+            <h2 class="step-title">We’d like to place you in a cohort</h2>
             <div class="form-group">
-              <select name="start_date" id="start_date" class="selectpicker wow fadeInLeft" data-wow-delay="1s">
+              <select name="start_date" id="start_date" class="selectpicker">
                 <option value="" selected disabled>Start date</option>
                 <option value="1">Jan 30 2020</option>
                 <option value="2">Feb 30 2020</option>
                 <option value="3">Mar 30 2020</option>
               </select>
-              <select name="familiarity" id="familiarity" class="selectpicker wow fadeInLeft" data-wow-delay="1.3s">
+              <select name="familiarity" id="familiarity" class="selectpicker">
                 <option value="" selected disabled>Familiarity with entrepreneurship</option>
-                <option value="1">No experience</option>
-                <option value="2">Some experience</option>
-                <option value="3">Good experience</option>
+                <option value="no">No experience: I'm excited to start learning</option>
+                <option value="some">Some experience: I've tried starting an idea</option>
+                <option value="intermediate">Intermediate experience: I've had some revenue</option>
+                <option value="expert">Expert experience: I've sold 6 figures or more</option>
               </select>
             </div>
-            <input type="button" class="btn btn-yellow btn-next disabled wow fadeInUp" data-wow-delay="1.6s" value="Next">
+            <input type="button" class="btn btn-yellow btn-next disabled" value="Next">
             <div class="mobile-step-circles">
-              <span data-wow-delay="1.9s" class="wow fadeInLeft circle active"></span>
-              <span data-wow-delay="2s" class="wow fadeInLeft circle active"></span>
-              <span data-wow-delay="2.1s" class="wow fadeInLeft circle"></span>
-              <span data-wow-delay="2.2s" class="wow fadeInLeft circle"></span>
+              <span class="circle active"></span>
+              <span class="circle active"></span>
+              <span class="circle"></span>
+              <span class="circle"></span>
             </div>
           </div>
-          <div class="tab-pane fade show step-content " id="step3" role="tabpanel">
-            <p class="step-description wow fadeInLeft" data-wow-delay="0.4s">Select an option</p>
-            <h2 class="step-title wow fadeInLeft" data-wow-delay="0.7s">Confirm your plan</h2>
-            <div class="switch-wrapper wow fadeInDown" data-wow-delay="1s">
+          <div class="tab-pane fade show step-content active" id="step3" role="tabpanel">
+            <p class="step-description">Select an option</p>
+            <h2 class="step-title">Confirm your plan</h2>
+            <div class="switch-wrapper">
               <label class="switch-label active" for="plan_method">Pay weekly</label>
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="plan_method">
@@ -101,12 +102,12 @@
               </div>
               <label class="switch-label" for="plan_method">Pay upfront (10% off)</label>
             </div>
-            <div class="plans active wow fadeInLeft" data-wow-delay="1.3s" id="weekly_plan">
+            <div class="plans active" id="weekly_plan">
               <div class="plan">
                 <input type="radio" name="plan" value="weekly_popular" class="d-none">
                 <span class="plan-grade">Popular</span>
                 <h2 class="plan-name">Founder</h2>
-                <p class="plan-price">$95/week, risk-free guarantee</p>
+                <p class="plan-price"><span class="price">$95 / week</span>, risk-free guarantee</p>
                 <hr>
                 <ul>
                   <li>Access to live classes</li>
@@ -125,7 +126,7 @@
                 <input type="radio" name="plan" value="weekly_premium" class="d-none">
                 <span class="plan-grade">Premium</span>
                 <h2 class="plan-name">Mentee</h2>
-                <p class="plan-price">$180/week, risk-free guarantee</p>
+                <p class="plan-price"><span class="price">$180 / week</span>, risk-free guarantee</p>
                 <hr>
                 <ul>
                   <li>Access to live classes</li>
@@ -144,7 +145,7 @@
                 <input type="radio" name="plan" value="weekly_basic" class="d-none">
                 <span class="plan-grade">Basic</span>
                 <h2 class="plan-name">Spectator</h2>
-                <p class="plan-price">$65/week, risk-free guarantee</p>
+                <p class="plan-price"><span class="price">$65 / week</span>, risk-free guarantee</p>
                 <hr>
                 <ul>
                   <li>Access to live classes</li>
@@ -165,7 +166,7 @@
                 <input type="radio" name="plan" value="upfront_popular" class="d-none">
                 <span class="plan-grade">Popular</span>
                 <h2 class="plan-name">Founder</h2>
-                <p class="plan-price">$85/year, risk-free guarantee</p>
+                <p class="plan-price"><span class="price">$85 / year</span>, risk-free guarantee</p>
                 <hr>
                 <ul>
                   <li>Access to live classes</li>
@@ -184,7 +185,7 @@
                 <input type="radio" name="plan" value="upfront-premium" class="d-none">
                 <span class="plan-grade">Premium</span>
                 <h2 class="plan-name">Mentee</h2>
-                <p class="plan-price">$162/year, risk-free guarantee</p>
+                <p class="plan-price"><span class="price">$162 / year</span>, risk-free guarantee</p>
                 <hr>
                 <ul>
                   <li>Access to live classes</li>
@@ -203,7 +204,7 @@
                 <input type="radio" name="plan" value="upfront_basic" class="d-none">
                 <span class="plan-grade">Basic</span>
                 <h2 class="plan-name">Spectator</h2>
-                <p class="plan-price">$58/year, risk-free guarantee</p>
+                <p class="plan-price"><span class="price">$58 / year</span>, risk-free guarantee</p>
                 <hr>
                 <ul>
                   <li>Access to live classes</li>
@@ -219,63 +220,63 @@
                 </ul>
               </div>
             </div>
-            <div class="button-wrapper wow fadeInUp" data-wow-delay="1.6s">
-              <input type="button" class="btn btn-yellow btn-next disabled wow fadeInDown" data-wow-delay="1.9s" value="Next">
+            <div class="button-wrapper">
+              <input type="button" class="btn btn-yellow btn-next disabled" id="btn_next3" value="Next">
               <div class="mobile-step-circles">
-                <span data-wow-delay="1.9s" class="wow fadeInLeft circle active"></span>
-                <span data-wow-delay="2s" class="wow fadeInLeft circle active"></span>
-                <span data-wow-delay="2.1s" class="wow fadeInLeft circle active"></span>
-                <span data-wow-delay="2.2s" class="wow fadeInLeft circle"></span>
+                <span class="circle active"></span>
+                <span class="circle active"></span>
+                <span class="circle active"></span>
+                <span class="circle"></span>
               </div>
             </div>
           </div>
           <div class="tab-pane fade show step-content" id="step4" role="tabpanel">
-            <p class="step-description wow fadeInLeft" data-wow-delay="0.4s">You're almost there...</p>
-            <h2 class="step-title wow fadeInLeft" data-wow-delay="0.7s">Start your KuzoClass</h2>
+            <p class="step-description">You're almost there...</p>
+            <h2 class="step-title">Start your KuzoClass</h2>
             <!-- <div class="stripe-card">
               <input type="text" id="card_number" placeholder="Card number">
               <input type="text" id="card_expiration_date" placeholder="MM/YY">
               <input type="text" id="card_cvc" placeholder="CVC">
             </div> -->
             <!-- Stripe Card -->
-            <div id="card-element" class="wow fadeInLeft" data-wow-delay="1s"></div>
+            <div id="card-element"></div>
             <div id="card-errors"></div>
             <!-- /Stripe Card -->
-            <div class="plan-detail wow fadeInLeft" data-wow-delay="1.3s">
+            <div class="plan-detail">
               <div>
                 <span class="plan-detail__title">Chosen Plan</span>
-                <p class="plan-price">$95 / week</p>
+                <p class="plan-price" id="chosen_plan_price">$95 / week</p>
               </div>
               <div>
-                <p class="plan-name">Founder</p>
-                <p class="plan-total-cost">Due today: $1025</p>
+                <p class="plan-name" id="chosen_plan_name">Founder</p>
+                <p class="plan-total-cost">Due today: <span id="bill_today">$1025</span></p>
               </div>
             </div>
-            <ul class="wow fadeInLeft" data-wow-delay="1.6s">
+            <ul>
               <li><i class="fas fa-check"></i> You’ll be billed for the full accelerator (12 weeks)</li>
               <li><i class="fas fa-check"></i> If you complete the accelerator and aren’t
                 satisfied, we’ll refund your purchase</li>
             </ul>
-            <p class="description wow fadeInDown" data-wow-delay="1.9s">By clicking “Enroll Now“ you agree to KuzoClass’ <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Your credit card
+            <p class="description">By clicking “Enroll Now“ you agree to KuzoClass’ <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. Your credit card
               will be charged immediately.</p>
-            <input type="submit" class="btn btn-yellow disabled wow fadeInUp" data-wow-delay="2.2s" value="ENROLL NOW" id="btn_enroll">
+            <input type="submit" class="btn btn-yellow disabled" value="ENROLL NOW" id="btn_enroll">
             <div class="mobile-step-circles">
-              <span class="circle active wow fadeIn" data-wow-delay="2.5s"></span>
-              <span class="circle active wow fadeIn" data-wow-delay="2.7s"></span>
-              <span class="circle active wow fadeIn" data-wow-delay="2.9s"></span>
-              <span class="circle active wow fadeIn" data-wow-delay="3.1s"></span>
+              <span class="circle active"></span>
+              <span class="circle active"></span>
+              <span class="circle active"></span>
+              <span class="circle active"></span>
             </div>
           </div>
       </form>
       <!-- </form> -->
     </section>
-    <section class="info-panel wow fadeInRight">
+    <section class="info-panel">
       <div class="content">
         <h2 class="title">KuzoClass</h2>
         <p class="desc">Entrepreneurship</p>
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">The accelerator built for the next Elon Musk.</h3>
+            <h3 class="card-title">The <span class="bg-yellow text-bold">accelerator</span> built for the next <span class="text-bold">Elon Musk</span>.</h3>
           </div>
           <div class="card-body">
             <div class="testimonials custom-slick">

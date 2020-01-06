@@ -48,6 +48,15 @@ $('document').ready(function () {
     activeNextElement('.step-link');
     $('.form-header .btn-back').css('opacity', 1);
   });
+  $('#btn_next3').click(function() {
+    let plan = $('.plan.active');
+    let planName = plan.find('.plan-name').text();
+    let planPrice = plan.find('.price').text();
+    console.log(plan, planName, planPrice);
+    $('#chosen_plan_price').text(planPrice);
+    $('#chosen_plan_name').text(planName);
+    // $('#bill_today').
+  });
   // Show prev content when click prev button
   $('.btn-back').click(function () {
       activePrevElement('.step-content');
@@ -78,7 +87,6 @@ $('document').ready(function () {
   // Select plan when click plan items
   $('.plan').click(function () {
     // Get Plan value when click plan
-    let planValue = $('input[name="plan"]:checked').val();
 
     $(this).find('input').prop('checked', true);
     $('.plan.active').removeClass('active');
@@ -90,12 +98,6 @@ $('document').ready(function () {
   // Add active class when click selectpicker
   $('.selectpicker').on('changed.bs.select', function() {
     $(this).closest('.bootstrap-select').addClass('active');
-  });
-  $('.selectpicker').on('rendered.bs.select', function() {
-    let delay = $(this).data('wow-delay');
-    let parent = $(this).closest('.bootstrap-select');
-    parent.attr('data-wow-delay', delay);
-    parent.addClass('wow fadeInLeft');
   });
 
   // Stripe Integration

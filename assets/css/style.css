@@ -34,11 +34,15 @@ a {
 .custom-toggler .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(242, 206, 80)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); }
 
-/*******************************
-* MODAL AS LEFT/RIGHT SIDEBAR
-* Add "left" or "right" in modal parent div, after class="modal".
-* Get free snippets on bootpen.com
-*******************************/
+/* ----- MODAL STYLE ----- */
+.modal-content {
+  border-radius: 0;
+  border: none; }
+
+.modal-header {
+  border-bottom-color: #EEEEEE;
+  background-color: #FAFAFA; }
+
 .modal.left .modal-dialog,
 .modal.right .modal-dialog {
   position: fixed;
@@ -49,15 +53,13 @@ a {
   -ms-transform: translate3d(0%, 0, 0);
   -o-transform: translate3d(0%, 0, 0);
   transform: translate3d(0%, 0, 0); }
-
-.modal.left .modal-content,
-.modal.right .modal-content {
-  height: 100%;
-  overflow-y: auto; }
-
-.modal.left .modal-body,
-.modal.right .modal-body {
-  padding: 15px 15px 80px; }
+  .modal.left .modal-dialog .modal-content,
+  .modal.right .modal-dialog .modal-content {
+    height: 100%;
+    overflow-y: auto; }
+    .modal.left .modal-dialog .modal-content .modal-body,
+    .modal.right .modal-dialog .modal-content .modal-body {
+      padding: 15px 15px 80px; }
 
 /*Left*/
 .modal.left.fade .modal-dialog {
@@ -81,14 +83,8 @@ a {
 .modal.right.fade.show .modal-dialog {
   right: 0; }
 
-/* ----- MODAL STYLE ----- */
-.modal-content {
-  border-radius: 0;
-  border: none; }
-
-.modal-header {
-  border-bottom-color: #EEEEEE;
-  background-color: #FAFAFA; }
+.bg-yellow {
+  background-color: #F2CE50 !important; }
 
 .btn-yellow {
   background: #F2CE50 !important;
@@ -819,6 +815,10 @@ a {
       line-height: 30px;
       margin-left: 30px;
       margin-top: 10px; }
+      .page-content#form_page .toolbar .btn-back i {
+        transition: all .3s ease-in-out; }
+      .page-content#form_page .toolbar .btn-back:hover i {
+        transform: translateX(-10px); }
   .page-content#form_page .main-panel {
     border-right: solid 0.5px #dbdbdb;
     text-align: center;
@@ -978,8 +978,10 @@ a {
           background: #ffffff;
           border: 2px solid transparent;
           box-shadow: 2px 4px 24px rgba(195, 195, 195, 0.5);
-          transition: border .3s ease-in-out;
+          transition: all .3s ease-in-out;
           cursor: pointer; }
+          .page-content#form_page .main-panel .step-contents .step-content .plans .plan:hover {
+            box-shadow: 2px 4px 30px rgba(130, 130, 130, 0.5); }
           .page-content#form_page .main-panel .step-contents .step-content .plans .plan.active {
             border-color: #F2CE50; }
           .page-content#form_page .main-panel .step-contents .step-content .plans .plan-grade {
@@ -1175,9 +1177,12 @@ a {
           border: none;
           background: transparent; }
           .page-content#form_page .info-panel .content .card .card-header .card-title {
+            font-family: "AvenirRegular";
             font-size: 1.7rem;
             line-height: 2.3rem;
             margin-bottom: 0; }
+            .page-content#form_page .info-panel .content .card .card-header .card-title .text-bold {
+              font-family: "AvenirHeavy"; }
           .page-content#form_page .info-panel .content .card .card-header::before {
             position: absolute;
             content: '';
@@ -2009,6 +2014,10 @@ a {
       color: #404040;
       display: block;
       opacity: 0; }
+      .form-header .btn-back i {
+        transition: all .3s ease-in-out; }
+      .form-header .btn-back:hover i {
+        transform: translateX("-20px"); }
     .form-header .logo {
       font-size: 26px;
       line-height: 36px; }
