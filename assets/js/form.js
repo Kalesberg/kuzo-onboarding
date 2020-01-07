@@ -1,7 +1,9 @@
 $('document').ready(function () {
   // Init Animation
-  new WOW().init({offset: 300});
-  
+  new WOW().init({
+    offset: 300
+  });
+
   function activeNextElement(className) {
     let old = $(className + '.active');
     old.next().addClass('active');
@@ -15,6 +17,7 @@ $('document').ready(function () {
       left: 0
     }, 300);
   }
+
   function activePrevElement(className) {
     let old = $(className + '.active');
     old.prev().addClass('active');
@@ -28,6 +31,7 @@ $('document').ready(function () {
     }, 300);
     old.removeClass('active');
   }
+
   function liveUpdateNextButton(elmnt) {
     let parent = elmnt.closest('.step-content');
     let flag = true;
@@ -64,7 +68,7 @@ $('document').ready(function () {
     activeNextElement('.step-link');
     $('.form-header .btn-back').css('opacity', 1);
   });
-  $('#btn_next3').click(function() {
+  $('#btn_next3').click(function () {
     let plan = $('.plan.active');
     let planName = plan.find('.plan-name').text();
     let planPrice = plan.find('.price').text();
@@ -82,8 +86,8 @@ $('document').ready(function () {
   });
   // Show prev content when click prev button
   $('.btn-back').click(function () {
-      activePrevElement('.step-content');
-      activePrevElement('.step-link');
+    activePrevElement('.step-content');
+    activePrevElement('.step-link');
     if ($('.step-content').first().hasClass('active')) {
       $(this).hide();
       $('.form-header .btn-back').css('opacity', 0);
@@ -91,7 +95,7 @@ $('document').ready(function () {
   });
 
   // Active Next button when all fields are selected
-   $('input.form-control').keydown(function () {
+  $('input.form-control').keydown(function () {
     liveUpdateNextButton($(this));
   });
   $('.step-content select').change(function () {
@@ -119,7 +123,7 @@ $('document').ready(function () {
   });
 
   // Add active class when click selectpicker
-  $('.selectpicker').on('changed.bs.select', function() {
+  $('.selectpicker').on('changed.bs.select', function () {
     $(this).closest('.bootstrap-select').addClass('active');
   });
 
@@ -202,6 +206,12 @@ $('document').ready(function () {
     }
   }
 
+  if ($('#phonenumber').length > 0) {
+    $('#phonenumber').intlTelInput({
+      utilsScript: "assets/plugins/intl-tel-input/js/utils.js"
+    });
+  }
+
   // Form Validation
   $('form').validate({
     rules: {
@@ -209,8 +219,18 @@ $('document').ready(function () {
         dateISO: true
       },
       phonenumber: {
-        phoneUS: true
-      }
+        required: true,
+        intlTelNumber: true
+      },
     }
   });
+
+  // create a custom phone number rule called 'intlTelNumber'
+  jQuery.validator.addMethod("intlTelNumber", function(value, element) {
+    let flag = this.optional(element) || $(element).intlTelInput("isValidNumber");
+    if ( !flag ) {
+      $(element).closest('.iti').addClass('error');
+    }
+    return flag;
+  }, "Please enter a valid International Phone Number");
 });

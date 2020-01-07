@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
   <link rel="stylesheet" href="assets/plugins/wow/animate.css">
+  <link rel="stylesheet" href="assets/plugins/intl-tel-input/css/intlTelInput.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css">
   <!-- /STYLESHEETS -->
 </head>
@@ -31,7 +32,7 @@
       <a href="#step1" class="header-link step-link nav-link active" data-toggle="tab">1. Create your account</a>
       <a href="#step2" class="header-link step-link nav-link" data-toggle="tab">2. Select available time slots</a>
     </nav>
-    <a href="#faq" class="header-link faq-link" data-toggle="modal" data-target="#faqModal" id="faqModalTitle">FAQs <i class="far fa-question-circle"></i></a>
+    <a href="#faq" class="header-link faq-link" data-toggle="modal" data-target="#faqModal" id="faqModalTitle"><span>FAQs</span> <i class="far fa-question-circle"></i></a>
   </header>
   <!-- /HEADER -->
 
@@ -298,8 +299,8 @@
               <option value="male">Male</option>
               <option value="female">Female</option>
             </select>
-            <input type="text" class="form-control" name="birthday" id="birthday" placeholder="Birthday (YYYY/MM/DD)">
-            <input type="text" class="form-control" name="phonenumber" id="phonenumber" placeholder="Phone number">
+            <input type="date" class="form-control" name="birthday" id="birthday" placeholder="Birthday (YYYY/MM/DD)">
+            <input type="tel" class="form-control" name="phonenumber" id="phonenumber" placeholder="Phone number">
             <select name="" id="" class="selectpicker">
               <option value="" selected disabled>University Major (Actual/Intended/Preferred)</option>
               <option value="Agriculture, Agriculture Operations, and Related Sciences">Agriculture, Agriculture Operations, and Related Sciences</option>
@@ -522,6 +523,7 @@
   <script src="assets/plugins/wow/wow.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/additional-methods.min.js"></script>
+  <script src="assets/plugins/intl-tel-input/js/intlTelInput-jquery.min.js"></script>
   <script src="assets/js/form.js"></script>
   <!-- /SCRIPTS -->
 </body>

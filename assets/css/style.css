@@ -201,11 +201,16 @@ a {
       pointer-events: auto; }
   .form-header .faq-link {
     pointer-events: auto;
-    opacity: 1; }
+    opacity: 1;
+    width: 150px;
+    text-align: right; }
+    .form-header .faq-link i {
+      display: inline-block; }
     .form-header .faq-link span {
+      display: inline-block;
       transition: all .3s ease-in-out; }
     .form-header .faq-link:hover span {
-      transform: translateX(-10px); }
+      margin-right: 10px; }
 
 .page-content .page-section .section-title {
   font-family: "AvenirHeavy";
@@ -888,6 +893,10 @@ a {
               color: #a6a6a6; }
             .page-content#form_page .main-panel .step-contents .step-content .form-group .form-control.error {
               border-color: red !important; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group input[type=date]::-webkit-datetime-edit {
+            color: #a6a6a6; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group input[type=date].valid::-webkit-datetime-edit {
+            color: #383838; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .error {
             color: red; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select {
@@ -927,6 +936,19 @@ a {
                 background: #f2f2f2; }
             .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select .dropdown-menu li.disabled {
               display: none; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group .iti {
+            width: 100%;
+            margin-bottom: 17px; }
+            .page-content#form_page .main-panel .step-contents .step-content .form-group .iti .form-control {
+              padding-left: 50px; }
+            .page-content#form_page .main-panel .step-contents .step-content .form-group .iti.error {
+              margin-bottom: 41px; }
+            .page-content#form_page .main-panel .step-contents .step-content .form-group .iti #phonenumber-error {
+              position: absolute;
+              top: 71px;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 100%; }
         .page-content#form_page .main-panel .step-contents .step-content #card-errors {
           color: red;
           margin-bottom: 20px; }
@@ -1243,10 +1265,21 @@ a {
                 margin-bottom: 0; }
           .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-next {
             right: -20px;
-            background: center/contain no-repeat url("../images/chevron-right.svg"); }
+            background: center/contain no-repeat url("../images/chevron-right.svg");
+            -webkit-transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.6; }
+            .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-next:hover {
+              opacity: 1; }
           .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-prev {
             left: -20px;
-            background: center/contain no-repeat url("../images/chevron-left.svg"); }
+            background: center/contain no-repeat url("../images/chevron-left.svg");
+            -webkit-transition: background-image 0.3s ease-in-out;
+            -webkit-transition: opacity 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
+            opacity: 0.6; }
+            .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-prev:hover {
+              opacity: 1; }
           .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-next::before,
           .page-content#form_page .info-panel .content .card .card-body .custom-slick .slick-prev::before {
             color: white;

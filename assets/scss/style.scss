@@ -293,11 +293,17 @@ a {
   .faq-link {
     pointer-events: auto;
     opacity: 1;
+    width: 150px;
+    text-align: right;
+    i {
+      display: inline-block;
+    }
     span {
+      display: inline-block;
       transition: all .3s ease-in-out;
     }
     &:hover span {
-      transform: translateX(-10px);
+      margin-right: 10px;
     }
   }
 }
@@ -1144,6 +1150,12 @@ a {
                 border-color: red !important;
               }
             }
+            input[type=date]::-webkit-datetime-edit {
+              color: #a6a6a6;
+            }
+            input[type=date].valid::-webkit-datetime-edit {
+              color: $black;
+            }
             .error {
               color: red;
             }
@@ -1184,6 +1196,23 @@ a {
                     display: none;
                   }
                 }
+              }
+            }
+            .iti {
+              width: 100%;
+              margin-bottom: 17px;
+              .form-control {
+                padding-left: 50px;
+              }
+              &.error {
+                margin-bottom: 41px;
+              }
+              #phonenumber-error {
+                position: absolute;
+                top: 71px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
               }
             }
           }
@@ -1560,10 +1589,23 @@ a {
               .slick-next {
                 right: -20px;
                 background: center / contain no-repeat url('../images/chevron-right.svg');
+                -webkit-transition: opacity 0.3s ease-in-out;
+                transition: opacity 0.3s ease-in-out;
+                opacity: 0.6;
+                &:hover {
+                  opacity: 1;
+                }
               }
               .slick-prev {
                 left: -20px;
                 background: center / contain no-repeat url('../images/chevron-left.svg');
+                -webkit-transition: background-image 0.3s ease-in-out;
+                -webkit-transition: opacity 0.3s ease-in-out;
+                transition: opacity 0.3s ease-in-out;
+                opacity: 0.6;
+                &:hover {
+                  opacity: 1;
+                }
               }
               .slick-next::before,
               .slick-prev::before {
