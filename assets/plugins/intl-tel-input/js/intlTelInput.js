@@ -1,5 +1,5 @@
 /*
- * International Telephone Input v16.0.8
+ * International Telephone Input v16.0.0
  * https://github.com/jackocnr/intl-tel-input.git
  * Licensed under the MIT license
  */
@@ -519,7 +519,7 @@
                     // open dropdown list if currently focused
                     this._handleFlagsContainerKeydown = function(e) {
                         var isDropdownHidden = _this4.countryList.classList.contains("iti__hide");
-                        if (isDropdownHidden && [ "ArrowUp", "Up", "ArrowDown", "Down", " ", "Enter" ].indexOf(e.key) !== -1) {
+                        if (isDropdownHidden && [ "ArrowUp", "ArrowDown", " ", "Enter" ].indexOf(e.key) !== -1) {
                             // prevent form from being submitted if "ENTER" was pressed
                             e.preventDefault();
                             // prevent event from being handled again by document
@@ -745,7 +745,7 @@
                         // and enter key from submitting a form etc
                         e.preventDefault();
                         // up and down to navigate
-                        if (e.key === "ArrowUp" || e.key === "Up" || e.key === "ArrowDown" || e.key === "Down") _this9._handleUpDownKey(e.key); else if (e.key === "Enter") _this9._handleEnterKey(); else if (e.key === "Escape") _this9._closeDropdown(); else if (/^[a-zA-ZÀ-ÿ ]$/.test(e.key)) {
+                        if (e.key === "ArrowUp" || e.key === "ArrowDown") _this9._handleUpDownKey(e.key); else if (e.key === "Enter") _this9._handleEnterKey(); else if (e.key === "Escape") _this9._closeDropdown(); else if (/^[a-zA-ZÀ-ÿ ]$/.test(e.key)) {
                             // jump to countries that start with the query string
                             if (queryTimer) clearTimeout(queryTimer);
                             query += e.key.toLowerCase();
@@ -761,11 +761,11 @@
             }, {
                 key: "_handleUpDownKey",
                 value: function _handleUpDownKey(key) {
-                    var next = key === "ArrowUp" || key === "Up" ? this.highlightedItem.previousElementSibling : this.highlightedItem.nextElementSibling;
+                    var next = key === "ArrowUp" ? this.highlightedItem.previousElementSibling : this.highlightedItem.nextElementSibling;
                     if (next) {
                         // skip the divider
                         if (next.classList.contains("iti__divider")) {
-                            next = key === "ArrowUp" || key === "Up" ? next.previousElementSibling : next.nextElementSibling;
+                            next = key === "ArrowUp" ? next.previousElementSibling : next.nextElementSibling;
                         }
                         this._highlightListItem(next, true);
                     }
@@ -951,7 +951,7 @@
                     var selectedFlagClone = this.selectedFlag.cloneNode(true);
                     containerClone.appendChild(selectedFlagClone);
                     var width = selectedFlagClone.offsetWidth;
-                    containerClone.parentNode.removeChild(containerClone);
+                    containerClone.remove();
                     return width;
                 }
             }, {
@@ -1313,7 +1313,7 @@
         // default options
         window.intlTelInputGlobals.defaults = defaults;
         // version
-        window.intlTelInputGlobals.version = "16.0.8";
+        window.intlTelInputGlobals.version = "16.0.0";
         // convenience wrapper
         return function(input, options) {
             var iti = new Iti(input, options);

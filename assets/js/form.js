@@ -208,6 +208,7 @@ $('document').ready(function () {
 
   if ($('#phonenumber').length > 0) {
     $('#phonenumber').intlTelInput({
+      nationalMode: true,
       utilsScript: "assets/plugins/intl-tel-input/js/utils.js"
     });
   }
