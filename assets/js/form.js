@@ -236,7 +236,10 @@ $('document').ready(function () {
 
   if ($('#phonenumber').length > 0) {
     $('#phonenumber').intlTelInput({
+      autoHideDialCode:true,
       nationalMode: true,
+      autoPlaceholder:"aggressive",
+      separateDialCode: true,
       preferredCountries: ["us","ca"],
       utilsScript: "assets/plugins/intl-tel-input/js/utils.js"
     });
