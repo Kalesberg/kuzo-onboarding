@@ -1151,11 +1151,25 @@ a {
                 border-color: red !important;
               }
             }
-            input[type=date]::-webkit-datetime-edit {
-              color: #a6a6a6;
+            input[type=date] {
+              &::-webkit-datetime-edit {
+                color: #a6a6a6;
+              }
+              &.valid::-webkit-datetime-edit {
+                color: $black;
+              }
+              &::-webkit-inner-spin-button {
+                display: none;
+              }
+              &::-webkit-clear-button {
+                margin-right: 0.5em;
+              }
             }
-            input[type=date].valid::-webkit-datetime-edit {
-              color: $black;
+            input::-webkit-calendar-picker-indicator {
+              width: 0.6em;
+              height: 0.3em;
+              padding: 0;
+              color: #434343;
             }
             .error {
               color: red;
@@ -1379,6 +1393,9 @@ a {
               .annual-content {
                 display: none;
               }
+              .description .weekly-content {
+                display: inline;
+              }
             }
             &.annual {
               .weekly-content {
@@ -1386,6 +1403,9 @@ a {
               }
               .annual-content {
                 display: block;
+              }
+              .description .annual-content {
+                display: inline;
               }
             }
           }
@@ -1405,6 +1425,9 @@ a {
               font-size: 15px;
               line-height: 20px;
               color: $yellow;
+            }
+            p {
+              margin-bottom: 0;
             }
             .plan-price {
               color: #afafaf;
@@ -1479,6 +1502,22 @@ a {
                 width: 50px;
               }
             }
+          }
+          .google-form {
+            margin-bottom: 30px;
+            iframe {
+              height: 500px;
+            }
+            // position: relative;
+            // overflow: hidden;
+            // padding-top: 56.25%;
+            // iframe {
+            //   position: absolute;
+            //   top: 0;
+            //   left: 0;
+            //   width: 100%;
+            //   height: 100%;
+            // }
           }
         }
       }
@@ -1645,10 +1684,15 @@ a {
     }
   }
   
-  &.page-signup {
+  &.page-signup#form_page {
     grid-template-columns: 100% !important;
     .main-panel {
       background-color: #F4F0EB;
+      padding-top: 50px;
+      padding-bottom: 0px;
+      .btn-next {
+        margin-top: 50px;
+      }
       #step2 {
         .text {
           max-width: 530px;
@@ -2677,6 +2721,12 @@ a {
       }
       .info-panel {
         display: none;
+      }
+      &.page-signup {
+        .main-panel {
+          padding: 0px;
+
+        }
       }
     }
   }

@@ -897,6 +897,15 @@ a {
             color: #a6a6a6; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group input[type=date].valid::-webkit-datetime-edit {
             color: #383838; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group input[type=date]::-webkit-inner-spin-button {
+            display: none; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group input[type=date]::-webkit-clear-button {
+            margin-right: 0.5em; }
+          .page-content#form_page .main-panel .step-contents .step-content .form-group input::-webkit-calendar-picker-indicator {
+            width: 0.6em;
+            height: 0.3em;
+            padding: 0;
+            color: #434343; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .error {
             color: red; }
           .page-content#form_page .main-panel .step-contents .step-content .form-group .bootstrap-select {
@@ -1087,10 +1096,14 @@ a {
             display: block; }
           .page-content#form_page .main-panel .step-contents .step-content#step4.weekly .annual-content {
             display: none; }
+          .page-content#form_page .main-panel .step-contents .step-content#step4.weekly .description .weekly-content {
+            display: inline; }
           .page-content#form_page .main-panel .step-contents .step-content#step4.annual .weekly-content {
             display: none; }
           .page-content#form_page .main-panel .step-contents .step-content#step4.annual .annual-content {
             display: block; }
+          .page-content#form_page .main-panel .step-contents .step-content#step4.annual .description .annual-content {
+            display: inline; }
         .page-content#form_page .main-panel .step-contents .step-content .plan-detail {
           padding: 15px 20px;
           background: #ffffff;
@@ -1106,6 +1119,8 @@ a {
             font-size: 15px;
             line-height: 20px;
             color: #F2CE50; }
+          .page-content#form_page .main-panel .step-contents .step-content .plan-detail p {
+            margin-bottom: 0; }
           .page-content#form_page .main-panel .step-contents .step-content .plan-detail .plan-price {
             color: #afafaf;
             font-family: "AvenirMedium";
@@ -1178,6 +1193,10 @@ a {
               width: 70px; }
             .page-content#form_page .main-panel .step-contents .step-content .stripe-card input#card_cvc {
               width: 50px; }
+        .page-content#form_page .main-panel .step-contents .step-content .google-form {
+          margin-bottom: 30px; }
+          .page-content#form_page .main-panel .step-contents .step-content .google-form iframe {
+            height: 500px; }
     .page-content#form_page .main-panel::-webkit-scrollbar {
       width: 10px; }
     .page-content#form_page .main-panel::-webkit-scrollbar-track {
@@ -1304,17 +1323,21 @@ a {
               width: 45%; }
             .page-content#form_page .info-panel .content .card .card-footer .company-logos #tophat {
               width: 38%; }
-.page-content.page-signup {
+.page-content.page-signup#form_page {
   grid-template-columns: 100% !important; }
-  .page-content.page-signup .main-panel {
-    background-color: #F4F0EB; }
-    .page-content.page-signup .main-panel #step2 .text {
+  .page-content.page-signup#form_page .main-panel {
+    background-color: #F4F0EB;
+    padding-top: 50px;
+    padding-bottom: 0px; }
+    .page-content.page-signup#form_page .main-panel .btn-next {
+      margin-top: 50px; }
+    .page-content.page-signup#form_page .main-panel #step2 .text {
       max-width: 530px;
       margin: auto;
       font-size: 16px;
       line-height: 30px;
       color: #5a5a5a; }
-      .page-content.page-signup .main-panel #step2 .text a {
+      .page-content.page-signup#form_page .main-panel #step2 .text a {
         color: #5a5a5a; }
 
 .main-footer {
@@ -2123,6 +2146,8 @@ a {
         margin-top: 50px; }
     .page-content#form_page .info-panel {
       display: none; }
+    .page-content#form_page.page-signup .main-panel {
+      padding: 0px; }
 
   #faqModal .modal-dialog {
     width: 80%; }

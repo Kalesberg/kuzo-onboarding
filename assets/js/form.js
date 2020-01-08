@@ -51,6 +51,22 @@ $('document').ready(function () {
       nextBtn.addClass('disabled');
     }
   }
+
+  function calculateTotalCost(weeklyCost, planType) {
+    let originalCost;
+    switch (planType) {
+      case 0:
+        originalCost = weeklyCost * 12;
+        break;
+      case 1:
+        originalCost = weeklyCost * 12 * 0.9;
+        break;
+    }
+    originalCost = Math.floor(originalCost);
+    let rest = originalCost % 10;
+    if (rest < 5) return originalCost - rest;
+    else if (rest >= 5 && rest <= 9) return originalCost - rest + 5;
+  }
   // Init Testimonial Slider
   $('.testimonials').slick({
     dots: false,
@@ -74,15 +90,19 @@ $('document').ready(function () {
     let planPrice = plan.find('.price').text();
     $('#chosen_plan_price').text(planPrice);
     $('#chosen_plan_name').text(planName);
+    let totalCost;
+    let priceValue = planPrice.match(/\d+/);
     if ($('.plans.active').attr('id') == 'weekly_plan') {
       $('#step4').removeClass('annual');
       $('#step4').addClass('weekly');
+      totalCost = calculateTotalCost(priceValue, 0)
     }
     if ($('.plans.active').attr('id') == 'annual_plan') {
       $('#step4').removeClass('weekly');
       $('#step4').addClass('annual');
+      totalCost = calculateTotalCost(priceValue, 1)
     }
-    // $('#bill_today').
+    $('#bill_today').text('$' + totalCost);
   });
   // Show prev content when click prev button
   $('.btn-back').click(function () {
@@ -95,6 +115,9 @@ $('document').ready(function () {
   });
 
   // Active Next button when all fields are selected
+  $('input.form-control').on('input', function() {
+    liveUpdateNextButton($(this));
+  });
   $('input.form-control').keydown(function () {
     liveUpdateNextButton($(this));
   });
@@ -231,6 +254,8 @@ $('document').ready(function () {
     let flag = this.optional(element) || $(element).intlTelInput("isValidNumber");
     if ( !flag ) {
       $(element).closest('.iti').addClass('error');
+    } else {
+      $(element).closest('.iti').removeClass('error');
     }
     return flag;
   }, "Please enter a valid International Phone Number");
