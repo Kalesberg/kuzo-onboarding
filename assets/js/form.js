@@ -82,7 +82,10 @@ $('document').ready(function () {
     $('.btn-back').show();
     activeNextElement('.step-content');
     activeNextElement('.step-link');
-    $('.form-header .btn-back').css('opacity', 1);
+    $('.form-header .btn-back').css({
+      opacity: 1,
+      visibility: 'visible'
+    });
   });
   $('#btn_next3').click(function () {
     let plan = $('.plan.active');
@@ -129,9 +132,11 @@ $('document').ready(function () {
   $('#plan_method').change(function () {
     $('.switch-label').toggleClass('active');
     // Show changed plans
-    $('.plans.active').fadeOut('300');
     $('.plans').toggleClass('active');
-    $('.plans.active').fadeIn('300');
+    // Init plan select when change mode
+    $('.plan.active').removeClass('active');
+    $('#btn_next3').removeClass('valid');
+    $('#btn_next3').addClass('disabled');
   });
 
   // Select plan when click plan items
@@ -232,6 +237,7 @@ $('document').ready(function () {
   if ($('#phonenumber').length > 0) {
     $('#phonenumber').intlTelInput({
       nationalMode: true,
+      preferredCountries: ["us","ca"],
       utilsScript: "assets/plugins/intl-tel-input/js/utils.js"
     });
   }

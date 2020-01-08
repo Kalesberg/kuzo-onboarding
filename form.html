@@ -49,7 +49,7 @@
     </div>
     <section class="main-panel">
       <form class="tab-content step-contents" id="payment_form">
-          <div class="tab-pane fade show step-content active" id="step1" role="tabpanel">
+          <div class="tab-pane fade show step-content " id="step1" role="tabpanel">
             <p class="step-description">Enter your information</p>
             <h2 class="step-title">Let’s learn a bit about you</h2>
             <div class="form-group">
@@ -91,7 +91,7 @@
               <span class="circle"></span>
             </div>
           </div>
-          <div class="tab-pane fade show step-content" id="step3" role="tabpanel">
+          <div class="tab-pane fade show step-content active" id="step3" role="tabpanel">
             <p class="step-description">Select an option</p>
             <h2 class="step-title">Confirm your plan</h2>
             <div class="switch-wrapper">
@@ -259,7 +259,9 @@
               <li class="weekly-content"><i class="fas fa-check"></i> You’ll be billed for the first week of classes</li>
               <li class="weekly-content"><i class="fas fa-check"></i> Cancel before each week of classes to end the plan</li>
             </ul>
-            <p class="description">By clicking “Enroll Now“ you agree to KuzoClass’ <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>. 
+            <p class="description">By clicking “Enroll Now“ you agree to KuzoClass’ 
+              <a href="terms-of-service.html" target="_blank">Terms of Service</a> and 
+              <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
               <span class="annual-content">Your credit card will be charged immediately.</span>
               <span class="weekly-content">Your credit card will be charged weekly and your fees may vary based on how we bill.</span></p>
             <input type="submit" class="btn btn-yellow disabled" value="ENROLL NOW" id="btn_enroll">
@@ -285,7 +287,7 @@
             <div class="testimonials custom-slick">
               <div class="testimonial">
                 <div class="testimonial-avatar">
-                  <img src="assets/images/calvin.png" alt="" class="testimonial-avatar__img">
+                  <img src="assets/images/calvin.png" alt="" srcset="assets/images/calvin@2x.png" class="testimonial-avatar__img">
                 </div>
                 <div class="testimonial-content">
                   <p class="testimonial-text">“I wanted to hit the ground running and know how to build my startup.
@@ -296,7 +298,7 @@
               </div>
               <div class="testimonial">
                 <div class="testimonial-avatar">
-                  <img src="assets/images/calvin.png" alt="" class="testimonial-avatar__img">
+                  <img src="assets/images/calvin.png" alt="" srcset="assets/images/calvin@2x.png" class="testimonial-avatar__img">
                 </div>
                 <div class="testimonial-content">
                   <p class="testimonial-text">“I wanted to hit the ground running and know how to build my startup.
@@ -345,8 +347,8 @@
                   you will watch the recorded content together with your Team, followed by a 30-minute discussion
                   facilitated by a KuzoClass moderator. Every fourth session is a live assignment completed with your
                   group for the first 60 minutes, followed by a 30-minute facilitated discussion and feedback session.
-                  (Please note, students on the spectator plan do not participate live in the discussion portion,
-                  while Teams on the Elon Musk plan will be paired with Patrick Lee as the moderator)
+                  (Please note, students on the spectator plan do not participate live in the discussion portion, while
+                  Teams on the Elon Musk plan will be paired with Patrick Lee as the moderator)
                 </p>
               </div>
             </div>
@@ -358,37 +360,21 @@
               </div>
               <div id="collapse2" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, vitae voluptatum? Debitis
-                  delectus eveniet magnam non, velit laborum ab animi ratione dignissimos sequi provident quibusdam,
-                  aut doloremque placeat a minima.
+                  Teams are typically composed of 4-5 entrepreneurs and a moderator, however, scheduling constraints may
+                  result in slightly smaller or larger groups.
                 </p>
               </div>
             </div>
             <div class="faq">
               <div class="faq-header">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapseOne">
-                  How are the classes run?
+                  Can I cancel at any time?
                 </button>
               </div>
               <div id="collapse3" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
-                </p>
-              </div>
-            </div>
-            <div class="faq">
-              <div class="faq-header">
-                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapseOne">
-                  Can I cancel at any time?
-                </button>
-              </div>
-              <div id="collapse9" class="faq-body collapse" data-parent="#faq_accordion">
-                <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
+                  Yes! If you are unhappy, you can cancel at any time without obligation. Please fill out the
+                  cancellation request form to cancel.
                 </p>
               </div>
             </div>
@@ -400,9 +386,9 @@
               </div>
               <div id="collapse4" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
+                  The first payment - $65, $95 or $180 depending on your plan - will be taken upon checkout. No further
+                  payments will be taken until after you’ve experienced your first week of scheduled classes. The
+                  remaining weekly payments will resume starting the second week of classes.
                 </p>
               </div>
             </div>
@@ -414,9 +400,7 @@
               </div>
               <div id="collapse5" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
+                  We will endeavor to match you with your preferred time, although we may request you provide further availability if this is not possible.
                 </p>
               </div>
             </div>
@@ -428,9 +412,7 @@
               </div>
               <div id="collapse6" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
+                  Points are awarded for attendance of classes, completion of assignments and grading from your peers.
                 </p>
               </div>
             </div>
@@ -442,9 +424,10 @@
               </div>
               <div id="collapse7" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
+                  While it is expected that unforeseen conflicts will occur, all students are expected to attend on a
+                  regular basis. Absences damage the learning experience for other students on your team, and so should
+                  be avoided. If you expect to be absent, please let us know ahead of time so we can make sure you don’t
+                  fall behind, and so your classmates are not left waiting!
                 </p>
               </div>
             </div>
@@ -456,9 +439,24 @@
               </div>
               <div id="collapse8" class="faq-body collapse" data-parent="#faq_accordion">
                 <p>
-                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque laborum ea eaque aliquid! At quaerat
-                  autem aliquam delectus nisi error commodi, doloremque ipsam rerum accusamus alias libero iusto
-                  ducimus eaque?
+                  After checkout, we will send you a survey to collect your time availability. Teams will then be
+                  created and class times selected which are compatible with these choices. Once allocated, you will
+                  receive a Google Calendar including all your classes, and you will also receive timely email
+                  reminders.
+                </p>
+              </div>
+            </div>
+            <div class="faq">
+              <div class="faq-header">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapse9" aria-expanded="true" aria-controls="collapseOne">
+                  What hardware do I need to attend classes?
+                </button>
+              </div>
+              <div id="collapse9" class="faq-body collapse" data-parent="#faq_accordion">
+                <p>
+                  A laptop/desktop computer running Windows or OSX, running the latest copy of the Google Chrome web
+                  browser. A webcam (720p or better) is required, and a microphone and headphones/earphones/AirPods are
+                  recommended for the best classroom experience.
                 </p>
               </div>
             </div>

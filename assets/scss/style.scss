@@ -265,6 +265,7 @@ a {
   }
 }
 .form-header {
+  position: relative;
   display: flex;
   padding: 10px 40px;
   align-items: center;
@@ -274,6 +275,7 @@ a {
     font-family: $fontHeavy;
     font-size: 30px;
     color: #494949;
+    transition: none;
   }
   .header-link {
     display: inline-block;
@@ -1092,7 +1094,7 @@ a {
       border-right: solid 0.5px #dbdbdb;
       text-align: center;
       overflow: auto;
-      padding: 90px 20px;
+      padding: 90px 0px;
 
       // form {
         position: relative;
@@ -1103,8 +1105,7 @@ a {
           // left: 50%;
           // bottom: 130px;
           // transform: translateX(-50%);
-          margin: auto;
-          margin-top: 100px;
+          margin: 100px auto 20px;
           width: 280px;
           height: 66px;
           padding: 20px;
@@ -1113,7 +1114,7 @@ a {
           font-size: 18px;
           line-height: 25px;
           border-radius: 50px;
-          box-shadow: 0px 2px 12px rgba(195,195,195,0.5);
+          box-shadow: 0px 2px 12px rgba(195,195,195,0.9);
           &.disabled {
             opacity: 0.5;
             pointer-events: none;
@@ -1125,6 +1126,8 @@ a {
         overflow-x: hidden;
         .step-content {
           position: relative;
+          padding-left: 20px;
+          padding-right: 20px;
           text-align: center;
           transition: all .3s ease-in-out;
           .step-description {
@@ -1182,6 +1185,9 @@ a {
               .dropdown-toggle {
                 @include formStyle();
                 color: #a6a6a6;
+                .filter-option-inner-inner {
+                  text-overflow: ellipsis;
+                }
                 &::after {
                   color: #434343;
                 }
@@ -1287,6 +1293,7 @@ a {
             }
           }
           .plans {
+            animation: 0.5s ease-in fadeIn;
             display: none;
             &.active {
               display: block
@@ -1692,6 +1699,7 @@ a {
       padding-bottom: 0px;
       .btn-next {
         margin-top: 50px;
+        margin-bottom: 20px;
       }
       #step2 {
         .text {
@@ -2065,7 +2073,7 @@ a {
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1199px) {
   .main-header .btn-get-started {
     width: auto;
     font-size: 14px;
@@ -2103,6 +2111,14 @@ a {
   .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
     columns: 1;
   }
+  
+  .page-content#form_page .main-panel .step-contents .step-content .plans .plan ul {
+    display: flex;
+    flex-direction: column;
+    li.disabled {
+      order: 1;
+    }
+  } 
 }
 
 @media only screen and (max-width: 991px) {
@@ -2351,24 +2367,35 @@ a {
     nav {
       display: none !important;
     }
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
     .btn-back {
       display: block !important;
+      opacity: 0;
+      visibility: hidden;
     }
   }
   .page-content#form_page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
     .toolbar {
+      width: 100%;
       .btn-back {
-        display: none;
+        display: none !important;
       }
       .toolbar-content {
         padding: 10px;
       }
     }
     .main-panel {
-      padding-left: 0;
-      padding-right: 0;
-      .mobile-step-circles {
-        display: flex;
+      padding: 50px 0;
+      order: 1;
+      .step-contents .step-content {
         justify-content: center;
         align-items: center;
         margin-top: 30px;
@@ -2385,23 +2412,6 @@ a {
             margin-right: 0;  
           }
         }
-      }
-    }
-  }
-  .page-content#form_page {
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    .toolbar {
-      width: 100%;
-      .btn-back {
-        display: none !important;
-      }
-    }
-    .main-panel {
-      padding: 50px 20px;
-      order: 1;
-      .step-contents .step-content {
         .plans .plan ul li {
           color: #848484;
         }
@@ -2644,7 +2654,6 @@ a {
       line-height: 30px;
       color: #404040;
       display: block;
-      opacity: 0;
       i {
         transition: all .3s ease-in-out;
       }
@@ -2676,6 +2685,9 @@ a {
         padding-bottom: 20px;
         text-align: center;
         min-height: none;
+        .btn-next {
+          max-width: 100%;
+        }
         .step-contents {
           .step-content {
             flex-direction: column;
@@ -2700,13 +2712,9 @@ a {
             }
             .plans {
               margin-bottom: 100px;
-              .plan ul {
-                display: flex;
-                flex-direction: column;
-                li.disabled {
-                  order: 1;
-                }
-              }
+            }
+            .bootstrap-select .dropdown-menu {
+              max-width: 100%;
             }
           }
         }
@@ -2725,7 +2733,11 @@ a {
       &.page-signup {
         .main-panel {
           padding: 0px;
-
+        }
+      }
+      &.page-signup {
+        .main-panel .step-contents .step-content {
+          padding-bottom: 20px;
         }
       }
     }
@@ -2750,6 +2762,72 @@ a {
     }
   }
 } 
+
+@media only screen and (max-device-width: 991px) and (orientation: landscape) {
+  .form-header {
+    nav {
+      display: none !important;
+    }
+    .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .btn-back {
+      display: block !important;
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  .page-content#form_page {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    .toolbar {
+      width: 100%;
+      .btn-back {
+        display: none !important;
+      }
+      .toolbar-content {
+        padding: 10px;
+      }
+    }
+    .main-panel {
+      padding: 50px 0;
+      order: 1;
+      .step-contents .step-content {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 30px;
+        .plans .plan ul li {
+          color: #848484;
+        }
+        &#step3 .button-wrapper {
+          width: 100%;
+        }
+      }
+    }
+    .info-panel {
+      padding: 100px 20px 20px;
+      max-width: 100%;
+      .content {
+        position: relative;
+        max-width: 500px;
+        margin: auto;
+        left: 0;
+        top: 0;
+        transform: translate(0, 0);
+        .custom-slick .slick-prev,
+        .custom-slick .slick-next {
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
 
 @keyframes fadeIn {
   from { opacity: 0; }
