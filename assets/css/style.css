@@ -1221,6 +1221,7 @@ a {
           .page-content#form_page .main-panel .step-contents .step-content#step4.annual .description .annual-content {
             display: inline; }
         .page-content#form_page .main-panel .step-contents .step-content .plan-detail {
+          width: 100%;
           padding: 15px 20px;
           background: #ffffff;
           -webkit-box-shadow: 0px 2px 4px rgba(195, 195, 195, 0.5);
