@@ -1496,6 +1496,9 @@ a {
           &#step4 {
             max-width: 480px;
             margin: auto;
+            #card-element {
+              width: 100%;
+            }
             .weekly-content,
             .annual-content {
               display: none;

@@ -1203,6 +1203,8 @@ a {
         .page-content#form_page .main-panel .step-contents .step-content#step4 {
           max-width: 480px;
           margin: auto; }
+          .page-content#form_page .main-panel .step-contents .step-content#step4 #card-element {
+            width: 100%; }
           .page-content#form_page .main-panel .step-contents .step-content#step4 .weekly-content,
           .page-content#form_page .main-panel .step-contents .step-content#step4 .annual-content {
             display: none; }
