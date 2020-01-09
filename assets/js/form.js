@@ -56,7 +56,7 @@ $('document').ready(function () {
     let originalCost;
     switch (planType) {
       case 0:
-        originalCost = weeklyCost * 12;
+        originalCost = weeklyCost;
         break;
       case 1:
         originalCost = weeklyCost * 12 * 0.9;
@@ -76,6 +76,21 @@ $('document').ready(function () {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 2000,
+  });
+  // Init DatePicker
+  $(document).on('click', '#birthday', function () { 
+    var me = $("#birthday");
+    me.datepicker({
+      showOn: 'focus',
+      altFormat: "mm/dd/yy",
+      dateFormat: "mm/dd/yy",
+      minDate: '1/1/1900',
+      maxDate: '12/31/2300'
+    }).focus();
+    me.mask('99/99/9999');
+  }).on('select', '#birthday', function () {
+    var me = $("#birthday");
+    me.mask('99/99/9999');
   });
   // Show next content when click next button
   $('.btn-next').click(function () {
@@ -185,7 +200,7 @@ $('document').ready(function () {
 
     // Create an instance of the card Element.
     var card = elements.create('card', {
-      style: style
+      style: style,
     });
 
     // Add an instance of the card Element into the `card-element` <div>.
@@ -248,9 +263,6 @@ $('document').ready(function () {
   // Form Validation
   $('form').validate({
     rules: {
-      birthday: {
-        dateISO: true
-      },
       phonenumber: {
         required: true,
         intlTelNumber: true
